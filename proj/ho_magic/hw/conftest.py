@@ -26,14 +26,14 @@ import yaml
 
 
 def get_yaml_datas():
-    with open('D:\personProc\hogwarts_shining\datas\\test_1th_work.yml', encoding="utf-8") as f:
+    with open(r'D:\personProc\wheat\proj\ho_magic\datas\test_1th_work.yml', encoding="utf-8") as f:
         datas = yaml.safe_load(f)
         return datas
 
 
 # 获取企业微信添加成员信息
 def get_wework_data():
-    with open('D:\personProc\hogwarts_shining\datas\wework_member_info.yml', encoding="utf-8") as f:
+    with open(r'D:\personProc\wheat\proj\ho_magic\datas\wework_member_info.yml', encoding="utf-8") as f:
         datas = yaml.safe_load(f)
         return datas
 
@@ -177,7 +177,7 @@ def case_rank(pytestconfig):
 # 企业微信数据获取
 def get_wework_depart():
 
-    with open('D:\personProc\hogwarts_shining\datas\\add_department.yml', encoding='utf-8') as f:
+    with open(r'D:\personProc\wheat\proj\ho_magic\datas\add_department.yml', encoding='utf-8') as f:
         datas = yaml.safe_load(f)
         return datas
 
@@ -189,7 +189,7 @@ def get_depart(request):
 
 def get_tags_data():
 
-    with open('D:\personProc\hogwarts_shining\datas\\tags.yml', encoding='utf-8') as f:
+    with open(r'D:\personProc\wheat\proj\ho_magic\datas\tags.yml', encoding='utf-8') as f:
         datas = yaml.safe_load(f)
         return datas
 
@@ -218,24 +218,24 @@ def get_tags_order(request):
     return request.param
 
 
-def get_mustache_data(data):
-    import chevron
-    with open("D:\personProc\hogwarts_shining\homework_test" \
-              "\\test_wework_api_2th_work\\template\\add_member_template.mustache", \
-              encoding="utf-8") as f:
-        temp = f.read()
-    print("=========================")
-    datas = chevron.render(temp, data)
-    print("++++++++++++++++")
-    print(type(datas))
-    print(datas)
-    print("+++++++++++++++++++++")
-    return json.loads(datas)
+# def get_mustache_data(data):
+#     import chevron
+#     with open("D:\personProc\hogwarts_shining\homework_test" \
+#               "\\test_wework_api_2th_work\\template\\add_member_template.mustache", \
+#               encoding="utf-8") as f:
+#         temp = f.read()
+#     print("=========================")
+#     datas = chevron.render(temp, data)
+#     print("++++++++++++++++")
+#     print(type(datas))
+#     print(datas)
+#     print("+++++++++++++++++++++")
+#     return json.loads(datas)
 
 
 def get_member():
 
-    with open('D:\personProc\hogwarts_shining\datas\\add_member.yml', encoding='utf-8') as f:
+    with open(r'D:\personProc\wheat\proj\ho_magic\datas\add_member.yml', encoding='utf-8') as f:
         datas = yaml.safe_load(f)
         return datas
 

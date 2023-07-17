@@ -13,7 +13,7 @@ import allure
 
 
 global data
-data = yaml.safe_load(open("../datas/test_1th_work.yml"))
+data = yaml.safe_load(open("../datas/test_1th_work.yml", encoding='utf-8'))
 
 
 # 计算器
