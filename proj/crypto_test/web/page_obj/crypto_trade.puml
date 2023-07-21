@@ -1,0 +1,10 @@
+@startuml
+title:crypto trade
+
+participant exchange_page as ex
+participant trade_page as td
+
+ex -> td:1. 点击CRO按钮\n2.滑动查找到CRO/USDC\n3.点击trade按钮
+td -> td:点击order history查看历史订单
+
+@enduml
