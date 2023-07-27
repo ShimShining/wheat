@@ -8,8 +8,8 @@
   - [7 快速上手](#7-快速上手)
   - [8 联系作者](#8-联系作者)
 
-# 1 BUDTest
-- BUD国际版API自动化仓库
+# 1 BPServiceTest
+- API自动化仓库
 ## 2 使用
 ### 3 源码拉取
 - 项目拉取
@@ -18,7 +18,7 @@ git clone
 ```
 - 依赖安装
 ```angular2html
-cd BUDTest
+cd BPServiceTest
 pip3 install -r requirements.txt
 ```
 - 开发规范
@@ -35,7 +35,7 @@ git branch
 ### 4 运行
 - 国外
 ```angular2html
-cd us_api_test
+cd BPServiceTest
 pytest testcase
 ```
 ## 5 公共模块
