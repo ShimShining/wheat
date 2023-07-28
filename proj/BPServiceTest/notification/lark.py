@@ -20,27 +20,28 @@ class Lark:
 
     def post_allure_report_url(self, env, job=None):
 
+        # todo report_url 放到配置文件中去
         if job:
-            return "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-US-Api-Auto-Test-With-Params/allure/"
-        report_url = "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-US-Api-AutoTest/allure/"
+            return ""
+        report_url = ""
         if "MASTER" in env:
             return report_url
         if "ALPHA" in env:
-            report_url = "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-US-Alpha-Api-AutoTest/allure/"
+            report_url = ""
         elif "PROD" in env:
-            report_url = "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-US-Prod-Api-AutoTest/allure/"
+            report_url = ""
         return report_url
 
     def post_engine_allure_report_url(self, env, job=None):
         if job:
-            return "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-US-Api-Auto-Test-With-Params/allure/"
-        report_url = "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-Engine-Master-Api-AutoTest/allure/"
+            return ""
+        report_url = ""
         if "MASTER" in env:
             return report_url
         if "ALPHA" in env:
-            report_url = "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-Engine-Alpha-Api-AutoTest/allure/"
+            report_url = ""
         elif "PROD" in env:
-            report_url = "https://jenkins.pointone.tech/view/Auto-Test/job/BUD-Engine-Prod-Api-AutoTest/allure/"
+            report_url = ""
         return report_url
 
     def handle_report_body(self, data, job=None, engine=None):

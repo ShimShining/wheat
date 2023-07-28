@@ -1,0 +1,33 @@
+BPApi:
+  HOST:
+    MASTER_HOST: ""
+    ALPHA_HOST: ""
+    GREY_HOST: ""
+    PROD_HOST: ""
+  VERSION:
+    MASTER_VERSION: ""
+    ALPHA_VERSION: ""
+    GREY_VERSION: ""
+    PROD_VERSION: ""
+BPXApi:
+  HOST:
+    MASTER_HOST: ""
+    ALPHA_HOST: ""
+    GREY_HOST: ""
+    PROD_HOST: ""
+  VERSION:
+    MASTER_VERSION: ""
+    ALPHA_VERSION: ""
+    GREY_VERSION: ""
+    PROD_VERSION: ""
+
+EngineSimulation:
+  HOST:
+    MASTER_HOST: ""
+    ALPHA_HOST: ""
+    PROD_HOST: ""
+    DEV_HOST: ""
+  VERSION:
+    MASTER_VERSION: ""
+    ALPHA_VERSION: ""
+    PROD_VERSION: ""
