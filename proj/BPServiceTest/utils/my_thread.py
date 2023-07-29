@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: my_thread.py
 @Date: 2022/6/23 5:22 下午
 @Version: python 3.9

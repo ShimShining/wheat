@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: base_api_test.py
 @Date: 2021/12/25 8:57 下午
 @Version: python 3.10

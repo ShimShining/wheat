@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: draw.py
 @Date: 2022/12/28 5:59 下午
 @Version: python 3.9

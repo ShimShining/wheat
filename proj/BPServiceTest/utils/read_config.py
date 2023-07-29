@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: read_config.py
 @Date: 2021/10/27 11:15 下午
 @Version: python 3.10

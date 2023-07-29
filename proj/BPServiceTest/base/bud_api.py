@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: bud_api.py
 @Date: 2021/12/24 11:12 上午
 @Version: python 3.10

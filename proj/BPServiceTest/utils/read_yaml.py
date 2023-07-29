@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: read_yaml.py
 @Date: 2021/11/16 11:19 下午
 @Version: python 3.10

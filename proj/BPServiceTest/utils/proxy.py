@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: proxy.py
 @Date: 2022/7/7 10:55 下午
 @Version: python 3.9

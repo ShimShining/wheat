@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: get_req_json.py
 @Date: 2022/9/13 11:12 下午
 @Version: python 3.9

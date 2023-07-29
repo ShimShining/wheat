@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: faker.py
 @Date: 2021/10/29 5:49 下午
 @Version: python 3.10

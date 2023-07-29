@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: time_tools.py
 @Date: 2021/12/30 5:31 下午
 @Version: python 3.10

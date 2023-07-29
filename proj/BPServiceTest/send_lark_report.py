@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: send_lark_report.py
 @Date: 2022/4/27 10:17 上午
 @Version: python 3.8

@@ -1,0 +1,46 @@
+MASTER:
+  uid:
+  open_id:
+  user_name:
+  nick_name:
+  user_token:
+  token:
+  provider:
+  version:
+  to_uid:
+  walletAddress: ""
+  backup: ""
+
+ALPHA:
+  uid:
+  open_id:
+  user_name:
+  nick_name:
+  user_token:
+  token:
+  provider:
+  version:
+  to_uid:
+  walletAddress: ""
+  backup: ""
+
+PROD:
+  uid:
+  open_id:
+  user_name:
+  nick_name:
+  user_token:
+  token:
+  provider:
+  version:
+  to_uid:
+  walletAddress: ""
+  backup: ""
+DEV:
+  open_id:
+  first_name:
+  fullname:
+  user_id:
+  user_token:
+  token:
+  provider:

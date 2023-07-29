@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: req_wrapper.py
 @Date: 2022/8/29 3:52 下午
 @Version: python 3.9

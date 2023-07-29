@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """"
-@Author: xieguanglin
+@Author: shining
 @File: log.py
 @Date: 2021/10/26 10:54 下午
 @Version: python 3.10

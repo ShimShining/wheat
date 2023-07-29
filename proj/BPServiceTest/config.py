@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: config.py
 @Date: 2021/12/24 11:59 下午
 @Version: python 3.10

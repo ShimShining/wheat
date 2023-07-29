@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: uuid_random.py
 @Date: 2021/10/29 5:25 下午
 @Version: python 3.10

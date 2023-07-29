@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: bud_exception.py
 @Date: 2022/10/10 4:58 下午
 @Version: python 3.9

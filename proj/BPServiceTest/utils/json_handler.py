@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: json_handler.py
 @Date: 2022/6/12 8:42 下午
 @Version: python 3.9

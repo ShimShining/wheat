@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: us_global_variable.py
 @Date: 2022/5/1 11:16 下午
 @Version: python 3.8

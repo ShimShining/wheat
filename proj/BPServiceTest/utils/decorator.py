@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: decorator.py
 @Date: 2021/11/18 8:51 下午
 @Version: python 3.10

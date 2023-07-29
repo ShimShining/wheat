@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: public_server_mock.py
 @Date: 2022/11/10 11:27 上午
 @Version: python 3.9
