@@ -12,11 +12,11 @@ from us_api_test.business.basal.login import Login
 from us_api_test.business.user_info.image import Image
 from us_api_test.config import Config
 from us_api_test.flow.native.register_flow import RegisterFlow
-from us_api_test.testcase.us_bud_api_test import USBUDApiTest
+from proj.BPServiceTest.testcase.service_test import ServiceTest
 
 
 @allure.feature("登录模块")
-class TestLogin(USBUDApiTest):
+class TestLogin(ServiceTest):
 
     def setup(self):
 

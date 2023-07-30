@@ -63,7 +63,5 @@ class ReadYAML:
 
 if __name__ == "__main__":
 
-    # data = ReadYAML.read_case_data('../cn_api_test/data/people_image.yml', "TEST", "test_set_intro")
-    # print(data)
     data = {'a': 1, "b": 2}
     ReadYAML.write_yaml('./test.yml', data)
