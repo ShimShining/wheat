@@ -6,11 +6,11 @@
 @Version: python 3.10
 @Describle: 接口自动化基类
 """
-from base.bud_api import BUDApi
-from us_api_test.config import Config
+from proj.BPServiceTest.base.bud_api import BUDApi
+from proj.BPServiceTest.config import Config
 
 
-class BUDUSApi(BUDApi):
+class BPService(BUDApi):
 
     def __init__(self, env=Config.RUN_ENV, version=None, token=None, host=None):
         super(BUDUSApi, self).__init__()

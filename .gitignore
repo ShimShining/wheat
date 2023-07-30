@@ -160,14 +160,12 @@ cython_debug/
 .idea/
 .idea/vcs.xml
 .idea/
-venv/
 .pytest_cache/
 *.log
 *result/
 *report/
 *__pycache__/
 .idea/
-venv/
 .pytest_cache/
 *.log
 !/log/

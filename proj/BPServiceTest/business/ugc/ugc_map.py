@@ -11,7 +11,7 @@ ugc模版列表
 地图/素材/衣服/space发布列表
 地图/素材/衣服/space详情
 """
-from proj.BPServiceTest.business.BUDUSApi import BUDUSApi
+from proj.BPServiceTest.business.bp_service import BUDUSApi
 
 
 class UGCMap(BUDUSApi):
