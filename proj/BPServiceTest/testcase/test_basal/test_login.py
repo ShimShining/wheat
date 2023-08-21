@@ -8,10 +8,10 @@
 """
 import allure
 import pytest
-from us_api_test.business.basal.login import Login
-from us_api_test.business.user_info.image import Image
-from us_api_test.config import Config
-from us_api_test.flow.native.register_flow import RegisterFlow
+from proj.BPServiceTest.business.basal.login import Login
+from proj.BPServiceTest.business.user_info.image import Image
+from proj.BPServiceTest.config import Config
+from proj.BPServiceTest.business.flow.native.register_flow import RegisterFlow
 from proj.BPServiceTest.testcase.service_test import ServiceTest
 
 

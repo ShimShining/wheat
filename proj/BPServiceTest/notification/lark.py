@@ -8,7 +8,7 @@
 """
 import datetime
 import requests
-from us_api_test.config import Config
+from proj.BPServiceTest.config import Config
 
 
 class Lark:
@@ -160,7 +160,6 @@ class Lark:
                                 },
                                 "type": "default",
                                 "url": report_url
-                                # "url": "http://192.168.100.33/job/BUD-US-Api-AutoTest/allure/"
                             }
                         ],
                         "tag": "action"

@@ -7,12 +7,12 @@
 @Describe:
 """
 
-import us_api_test.req_body.chat as req_pkg
-from us_api_test.business.BUDUSApi import BUDUSApi
-from utils.get_req_json import GetReqJson as g
+import proj.BPServiceTest.req_json_body.chat as req_pkg
+from proj.BPServiceTest.business.bp_service import BPService
+from proj.BPServiceTest.utils.get_req_json import GetReqJson as g
 
 
-class Chat(BUDUSApi):
+class Chat(BPService):
     def post_chat_list_info(self, uid, chat_info, **kwargs):
         path = ""
         h = {
@@ -28,7 +28,7 @@ class Chat(BUDUSApi):
             "path": path,
             "json": json
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def get_group_chat_list(self, uid, **kwargs):
@@ -41,7 +41,7 @@ class Chat(BUDUSApi):
             "name": "获取超级群会话列表",
             "path": path
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def post_set_group(self, uid, chat_info, **kwargs):
@@ -57,7 +57,7 @@ class Chat(BUDUSApi):
             "path": path,
             "json": json
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def post_delete_group_members(self, uid, **kwargs):
@@ -74,7 +74,7 @@ class Chat(BUDUSApi):
             "json": j
 
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def post_join_group(self, uid, **kwargs):
@@ -90,7 +90,7 @@ class Chat(BUDUSApi):
             "name": "加入超级群",
             "params": params
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def post_invite_group(self, uid, **kwargs):
@@ -106,7 +106,7 @@ class Chat(BUDUSApi):
             "name": "邀请加入超级群",
             "params": params
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def post_quit_group(self, uid, **kwargs):
@@ -122,7 +122,7 @@ class Chat(BUDUSApi):
             "name": "退出超级群",
             "params": params
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def get_subset_member_list(self, uid, **kwargs):
@@ -138,8 +138,9 @@ class Chat(BUDUSApi):
             "name": "获取超级群成员列表",
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
+
 
 if __name__ == "__main__":
     c = Chat()

@@ -11,11 +11,8 @@ from typing import List
 import datetime
 import os
 from jinja2 import Environment, FileSystemLoader
-
 import pytest
-
 import proj.BPServiceTest.global_variable as ugv
-from proj.BPServiceTest.utils.global_config import GlobalConfig
 from proj.BPServiceTest.utils.read_yaml import ReadYAML
 
 
@@ -118,7 +115,7 @@ def pytest_sessionfinish(session):
 
     if not name.endswith('.html'):
         file_name = time.strftime("%Y-%m-%d_%H_%M_%S") + name + '.html'
-    elif "BUD" in name or 'bud' in name:
+    elif "xxx" in name or 'xx' in name:
         file_name = name
     else:
         file_name = time.strftime("%Y-%m-%d_%H_%M_%S") + name
@@ -336,7 +333,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
                 res['error_mod'].append(mod)
     res['source'] = source
 
-    yaml_path = GlobalConfig.ROOT_DIR + "notification/us_api_report.yml"
+    yaml_path = Config.ROOT_DIR + "notification/us_api_report.yml"
     ReadYAML.write_yaml(yaml_path, res)
     # print(res)
 

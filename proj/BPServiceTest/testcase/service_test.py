@@ -1,21 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
-@File: us_bud_api_test.py
-@Date: 2022/4/11 4:53 下午
-@Version: python 3.10
-@Describe:
-"""
-# -*- coding: utf-8 -*-
-"""
-@Author: xieguanglin
-@File: base_tase.py
+@Author: shining
+@File: service_test.py
 @Date: 2021/11/15 7:49 下午
 @Version: python 3.10
 @Describle: 测试基类
 """
-from base.base_api_test import BaseApiTest
-from base.bud_exception import *
+from proj.BPServiceTest.base.base_api_test import BaseApiTest
+from proj.BPServiceTest.base.bp_exception import *
 
 
 class ServiceTest(BaseApiTest):

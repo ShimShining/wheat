@@ -10,8 +10,8 @@ import json
 import random
 import string
 
-from us_api_test.business.search.search import Search
-from us_api_test.config import Config
+from business.search.search import Search
+from config import Config
 
 
 class PublicServerMock:
@@ -67,10 +67,10 @@ class PublicServerMock:
         """
         :param players: 字典类型的players
         {
-            "uid": "1527534371115646976",
+            "uid": "",
             "userName": "kin",
             "userNick": "",
-            "portraitUrl": "https://image-cdn.joinbudapp.com/UgcImage/1527534371115646976/Profile1527534371115646976_1653316800.png"
+            "portraitUrl": ""
                 }
         :return:
         """
@@ -78,99 +78,7 @@ class PublicServerMock:
             players = self.get_players(count=need_user)
         else:
             players = None
-        rsp = {
-            "result": 0,
-            "rmsg": "",
-            "data": {
-                "downtownInfo": {
-                    "downtownId": "teambud_downtown1_1",
-                    "downtownName": "Great Snowfield（Beta）",
-                    "downtownCover": "https://buddy-app-bucket.s3.us-west-1.amazonaws.com/downtown_new/pr/teambud_downtown1_1/detailpage.png",
-                    "downtownPngPrefix": "https://image-cdn.joinbudapp.com/downtown11071519/pr/teambud_downtown1_1/",
-                    "downtownJson": "https://cdn.joinbudapp.com/great_field/1668578712.json",
-                    "downtownDesc": "The Great Snowfield is the marvelous spectacles of the Forgotten Wonders.  Dangers and opportunities scatter in the alpine region.  Greatest treasures belong to the brave and the wise. Let the adventure begin!",
-                    "downtownDescLanguage": "en",
-                    "downtownNameLanguage": "en",
-                    "editorVersion": "1.50.0",
-                    "hasPublicServer": 1,
-                    "downtownStatus": {
-                        "clickMsg": ""
-                    }
-                },
-                "downtownCard": {
-                    "cardCover": "https://image-cdn.joinbudapp.com/downtown_new/master/teambud_downtown1_1/50downtownCard.png",
-                    "cardTitle": "Great Snowfield",
-                    "cardDesc": "The Great Snowfield opens new challenges for adventurers. Collecting BUD coins can unlock plenty of limited rewards! It's time to form your adventure team and hunt for BUD coins!",
-                    "buttonTextColor": "#0088FF"
-                },
-                "downtownPlayerCount": 0,
-                "downtownPlayers": [{
-                    "uid": "1585532114517704704",
-                    "userName": "id_8xq_pa_owvvcwwwwwwwww",
-                    "portraitUrl": "https://buddy-app-bucket.s3-accelerate.amazonaws.com/peopleHeadImg/15855321145177047041667194411930coverImg.png"
-                }, {
-                    "uid": "1592716446843670528",
-                    "userName": "ID_8z8a24aljvqm",
-                    "portraitUrl": "https://buddy-app-bucket.s3-accelerate.amazonaws.com/peopleHeadImg/1592716446843670528coverImg.png"
-                }],
-                "storyCard": {
-                    "cardCover": "https://image-cdn.joinbudapp.com/downtown_new/master/teambud_downtown1_1/50storyCard.png",
-                    "cardTitle": "Above the Clouds",
-                    "cardDesc": "Decorate your space to unlock outfits!",
-                    "buttonTextColor": "#FF4D88"
-                },
-                "storyInfo": {
-                    "mapId": "1592148384070971392_1668516581_6",
-                    "mapCover": "https://image-cdn.joinbudapp.com/fit-in/570x330/spaceTemplate/MySpace_Cover.jpg",
-                    "mapCoverFull": "https://cdn.joinbudapp.com/spaceTemplate/MySpace_Cover.jpg",
-                    "mapName": "Above the Clouds",
-                    "mapNameLanguage": "en",
-                    "mapJson": "https://cdn.joinbudapp.com/spaceTemplate/MySpace_Json.json",
-                    "mapDesc": "",
-                    "mapDescLanguage": "en",
-                    "mapCreator": {
-                        "uid": "1592148384070971392",
-                        "userName": "ID_8z3xc80r73n5",
-                        "userNick": "ID_8z3xc80r73n5",
-                        "portraitUrl": "https://image-cdn.joinbudapp.com/fit-in/128x128/peopleHeadImg/1592148384070971392_1668432730.png"
-                    },
-                    "dataType": 3,
-                    "dataSubType": 1,
-                    "hasPropList": 0,
-                    "hasDcList": 0,
-                    "hasComments": 0,
-                    "hasPhotos": 0,
-                    "hasLeaderboard": 0,
-                    "hasPublicServer": 0,
-                    "lastModifiedTime": 0,
-                    "propsBuyLevel": {
-                        "propsType": 0,
-                        "userList": None
-                    },
-                    "isLimit": 0,
-                    "audioList": None,
-                    "highestResIds": None,
-                    "draftId": 0,
-                    "templateId": 0,
-                    "maxPlayer": 0,
-                    "editTime": 0,
-                    "buyNumLimit": 0,
-                    "isIncludeCollection": 0,
-                    "isDC": 0,
-                    "dcInfo": None,
-                    "isPurchase": 0,
-                    "isPGC": 0,
-                    "groupServers": None,
-                    "renderJson": "",
-                    "jsonUrl": "",
-                    "dataUrl": "",
-                    "hasMaterial": False,
-                    "storySpaceStatus": 1
-                },
-                "appstoreUpdate": False
-            },
-            "requestId": "pr-cdq8d7pm59d0gb6c35kg"
-        }
+        rsp = {}
         if players:
             temp = []
             for i, p in enumerate(players):
@@ -215,29 +123,7 @@ class PublicServerMock:
         :param card_heads: [(i, count)]
         :return:
         """
-        rsp = {
-            "result": 0,
-            "rmsg": "",
-            "data": {
-                "cookie": "{\"paging_key\":null,\"offset\":2}",
-                "isEnd": 1,
-                "active": 49,
-                "serverList": [{
-                    "roomCode": "BFXrUFdJu",
-                    "maxPlayer": 50,
-                    "roomPlayerNum": 42,
-                    "players": None,
-                    "PlayerUid": None
-                }, {
-                    "roomCode": "MHim8rr0a",
-                    "maxPlayer": 8,
-                    "roomPlayerNum": 7,
-                    "players": None,
-                    "PlayerUid": None
-                }]
-            },
-            "requestId": "master-e6a71297-6ee1-44fc-a874-fee398139345"
-        }
+        rsp = {}
         server_list = []
         for i in range(cards):
             room = self.generate_room_card(player_count=card_heads[i][2])
@@ -258,38 +144,7 @@ class PublicServerMock:
 
     def mock_hangout(self, player_count=1, is_view=False, icon_player_num=None):
 
-        rsp = {
-            "result": 0,
-            "rmsg": "",
-            "data": {
-                "cookie": "{\"paging_key\":null,\"offset\":1}",
-                "isEnd": 1,
-                "downtownServer": {
-                    "maxPlayer": 16,
-                    "mapName": "Great Snowfield（Beta）",
-                    "mapCover": "https://image-cdn.joinbudapp.com/downtown11071519/pr/teambud_downtown1_1/hangout.png",
-                    "roomCode": "TNVekeAK2",
-                    "mapId": "teambud_downtown1_1",
-                    "players": [{
-                        "uid": "1592716446843670528",
-                        "userName": "ID_8z8a24aljvqm",
-                        "userNick": "",
-                        "portraitUrl": "https://image-cdn.joinbudapp.com/peopleHeadImg/1592716446843670528coverImg.png"
-                    }],
-                    "roomPlayerNum": 1,
-                    "PlayerUid": ["1592716446843670528"]
-                },
-                "isView": f"{is_view}",
-                "playerCount": f"{player_count}",  # 全部在房人数
-                "iconPlayers": [{
-                    "uid": "1592716446843670528",
-                    "userName": "ID_8z8a24aljvqm",
-                    "userNick": "",
-                    "portraitUrl": "https://buddy-app-bucket.s3-accelerate.amazonaws.com/peopleHeadImg/1592716446843670528coverImg.png"
-                }]
-            },
-            "requestId": "pr-cdq9d5pm59d4ed4tqkkg"
-        }
+        rsp = {}
         icon_players = self.get_players(count=icon_player_num)
         rsp['data']['iconPlayers'] = icon_players
         return rsp
@@ -302,43 +157,7 @@ class PublicServerMock:
         :return:
         """
 
-        rsp = {
-            "result": 0,
-            "rmsg": "",
-            "data": {
-                "cookie": "{\"paging_key\":null,\"offset\":2}",
-                "isEnd": 1,
-                "downtownPngPrefix": "https://image-cdn.joinbudapp.com/downtown11071519/pr/teambud_downtown1_1/",
-                "serverList": [{
-                    "maxPlayer": 16,
-                    "mapName": "Great Snowfield（Beta）",
-                    "mapCover": "https://image-cdn.joinbudapp.com/downtown11071519/pr/teambud_downtown1_1/hangout.png",
-                    "roomCode": "Dxel3MXlz",
-                    "mapId": "teambud_downtown1_1",
-                    "players": [{
-                        "uid": "1592716446843670528",
-                        "userName": "ID_8z8a24aljvqm",
-                        "portraitUrl": "https://image-cdn.joinbudapp.com/peopleHeadImg/1592716446843670528coverImg.png"
-                    }],
-                    "roomPlayerNum": 1,
-                    "PlayerUid": ["1592716446843670528"]
-                }, {
-                    "maxPlayer": 16,
-                    "mapName": "Great Snowfield（Beta）",
-                    "mapCover": "https://image-cdn.joinbudapp.com/downtown11071519/pr/teambud_downtown1_1/hangout.png",
-                    "roomCode": "vLqeCdswI",
-                    "mapId": "teambud_downtown1_1",
-                    "players": [{
-                        "uid": "1547085303167340544",
-                        "userName": "engine001",
-                        "portraitUrl": "https://image-cdn.joinbudapp.com/UgcImage/1547085303167340544/Profile1547085303167340544_1658499307.png"
-                    }],
-                    "roomPlayerNum": 1,
-                    "PlayerUid": ["1547085303167340544"]
-                }]
-            },
-            "requestId": "pr-cdqbuepm59d9odjjahi0"
-        }
+        rsp = {}
         server_list = []
         for i in range(cards):
             room = self.generate_downtown_room(player_count=card_heads[i][2], max_player=card_heads[i][3])
@@ -361,8 +180,8 @@ class PublicServerMock:
         down_town_room = dict()
         down_town_room['maxPlayer'] = max_player
         down_town_room['mapName'] = "Great Snowfield（Beta）"
-        down_town_room['mapCover'] = "https://image-cdn.joinbudapp.com/downtown11071519/pr/teambud_downtown1_1/hangout.png"
-        down_town_room['mapId'] = "teambud_downtown1_1"
+        down_town_room['mapCover'] = ""
+        down_town_room['mapId'] = ""
         down_town_room['roomCode'] = self.random_generate_room_code()
         down_town_room['roomPlayerNum'] = player_count
         return down_town_room

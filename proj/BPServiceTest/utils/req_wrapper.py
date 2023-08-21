@@ -80,12 +80,6 @@ def http_get(provider="1", open_id=None, first_name=None, **kwargs):
     name = "登录接口"
     """
 
-    # __data = {
-    #     "provider": provider,  # snapchat,facebook,apple,google,twitter,tiktok,tourist
-    #     "openId": open_id,
-    #     "firstName": first_name
-    # }
-
 
 if __name__ == "__main__":
     token = ""

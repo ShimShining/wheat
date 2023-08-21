@@ -29,7 +29,7 @@ class JsonHandler:
 
 
 if __name__ == "__main__":
-    from us_api_test.config import Config
+    from config import Config
 
     path = Config.DATA_PATH
     file_path = path + 'matchRegion.json'

@@ -12,7 +12,7 @@ import time
 class JoinPublicServerFlow:
 
     def __init__(self):
-        from us_api_test.business.engine.engine_simulation import EngineSimulation
+        from proj.BPServiceTest.business.engine.engine_simulation import EngineSimulation
         self.engine = EngineSimulation()
 
     def join_public_server_single_player(self, info: dict, **kwargs):

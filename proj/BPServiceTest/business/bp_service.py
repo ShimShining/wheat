@@ -6,14 +6,14 @@
 @Version: python 3.10
 @Describle: 接口自动化基类
 """
-from proj.BPServiceTest.base.bp_api import BUDApi
+from proj.BPServiceTest.base.bp_api import BPApi
 from proj.BPServiceTest.config import Config
 
 
-class BPService(BUDApi):
+class BPService(BPApi):
 
     def __init__(self, env=Config.RUN_ENV, version=None, token=None, host=None):
-        super(BUDUSApi, self).__init__()
+        super(BPService, self).__init__()
         self.env = env
         self.token = token
         # 获取环境host

@@ -11,10 +11,10 @@ ugc模版列表
 地图/素材/衣服/space发布列表
 地图/素材/衣服/space详情
 """
-from proj.BPServiceTest.business.bp_service import BUDUSApi
+from proj.BPServiceTest.business.bp_service import BPService
 
 
-class UGCMap(BUDUSApi):
+class UGCMap(BPService):
 
     def get_ugc_templates(self, uid, **kwargs):
 
@@ -35,7 +35,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def publish_ugc_draft(self, uid, **kwargs):
@@ -53,7 +53,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "json": j
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def set_like_ugc_map(self, uid, data_type, operation_type, map_info, **kwargs):
@@ -73,7 +73,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "json": j
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def delete_ugc_draft(self, uid, map_info, **kwargs):
@@ -92,7 +92,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "json": j
         }
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def get_draft_create_list(self, uid, **kwargs):
@@ -109,7 +109,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_ugc_publish_list(self, uid, to_uid, **kwargs):
@@ -130,7 +130,7 @@ class UGCMap(BUDUSApi):
             "params": params
         }
         # req = self.handle_req_params(locals())
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_ugc_detail_info(self, uid, map_id, **kwargs):
@@ -147,7 +147,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_studio_list(self, uid, **kwargs):
@@ -157,7 +157,7 @@ class UGCMap(BUDUSApi):
         h = {"uid": uid}
 
         req = self.handle_req_params(locals())
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_ugc_favorite_list(self, uid, **kwargs):
@@ -175,7 +175,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_hashtag_list(self, uid, **kwargs):
@@ -192,7 +192,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_hashtag_info(self, uid, **kwargs):
@@ -209,7 +209,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_quote_list(self, uid, **kwargs):
@@ -225,7 +225,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_photo_list(self, uid, **kwargs):
@@ -241,7 +241,7 @@ class UGCMap(BUDUSApi):
             "headers": h,
             "params": params
         }
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
 

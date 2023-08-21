@@ -11,9 +11,9 @@ import time
 import allure
 import pytest
 
-from us_api_test.business.social.chat import Chat
-from us_api_test.business.social.social import Social
-from us_api_test.config import Config
+from proj.BPServiceTest.business.social.chat import Chat
+from proj.BPServiceTest.business.social import Social
+from proj.BPServiceTest.config import Config
 from proj.BPServiceTest.testcase.service_test import ServiceTest
 
 
@@ -66,21 +66,21 @@ class TestChat(ServiceTest):
     @pytest.mark.smoking
     @pytest.mark.chat
     @allure.story("拉取超级群会话列表")
-    def test_get_group_chat_list(self, BUDGlobalArgs):
+    def test_get_group_chat_list(self, BPGlobalArgs):
         r = self.chat.get_group_chat_list(self.uid)  # 查询超级群会话列表
         self.assert_api_success_code(r)
         self.assert_data_not_empty(r)
         self.assert_not_empty(r["data"]["chatList"], msg='r["data"]["chatList"]')
         self.assert_not_empty(r["data"]["chatList"][0]["targetId"], msg='r["data"]["chatList"][0]["targetId"]')
-        BUDGlobalArgs["isEnd"] = r["data"]["isEnd"]
-        BUDGlobalArgs["cookie"] = r["data"]["cookie"]
+        BPGlobalArgs["isEnd"] = r["data"]["isEnd"]
+        BPGlobalArgs["cookie"] = r["data"]["cookie"]
 
     @pytest.mark.smoking
     @pytest.mark.chat
     @allure.story("翻页拉取超级群列表")
-    def test_get_group_chat_list_V2(self, BUDGlobalArgs):
-        cookie = BUDGlobalArgs.get("cookie", None)
-        isEnd = BUDGlobalArgs.get("isEnd", None)
+    def test_get_group_chat_list_V2(self, BPGlobalArgs):
+        cookie = BPGlobalArgs.get("cookie", None)
+        isEnd = BPGlobalArgs.get("isEnd", None)
         if isEnd == 1:
             pytest.skip("超级群会话不足一页")
         else:
@@ -100,9 +100,9 @@ class TestChat(ServiceTest):
     @pytest.mark.dependency(depends=['pre'])
     @allure.story("修改超级群群名称")
     @pytest.mark.run(order=2)
-    def test_modify_group_name(self, BUDGlobalArgs):
+    def test_modify_group_name(self, BPGlobalArgs):
         chat_info = dict()
-        rsp = BUDGlobalArgs.get("rsp", None)
+        rsp = BPGlobalArgs.get("rsp", None)
         target_id = rsp["chatInfo"]["targetId"]
         team_id = rsp["chatInfo"]["teamInfo"]["teamId"]
         team_name = rsp["chatInfo"]["teamInfo"]["teamName"]
@@ -123,9 +123,9 @@ class TestChat(ServiceTest):
     @pytest.mark.dependency(depends=['pre'])
     @allure.story("修改群头像")
     @pytest.mark.run(order=3)
-    def test_modify_group_photo(self, BUDGlobalArgs):
+    def test_modify_group_photo(self, BPGlobalArgs):
         chat_info = dict()
-        rsp = BUDGlobalArgs.get("rsp", None)
+        rsp = BPGlobalArgs.get("rsp", None)
         target_id = rsp["chatInfo"]["targetId"]
         team_id = rsp["chatInfo"]["teamInfo"]["teamId"]
         team_name = rsp["chatInfo"]["teamInfo"]["teamName"]
@@ -144,7 +144,7 @@ class TestChat(ServiceTest):
     @pytest.mark.chat
     @allure.story("邀请用户")
     @pytest.mark.run(order=4)
-    def test_invite_to_group(self, BUDGlobalArgs):
+    def test_invite_to_group(self, BPGlobalArgs):
         # 1.50版本后新接口
         # rsp = BUDGlobalArgs.get("rsp", None)
         # target_id = rsp["chatInfo"]["targetId"]
@@ -162,7 +162,7 @@ class TestChat(ServiceTest):
         # for a in self.members:
         #     self.assert_value_in(a, uid)
         chat_info = dict()
-        rsp = BUDGlobalArgs.get("rsp", None)
+        rsp = BPGlobalArgs.get("rsp", None)
         target_id = rsp["chatInfo"]["targetId"]
         team_id = rsp["chatInfo"]["teamInfo"]["teamId"]
         chat_info["target_id"] = target_id

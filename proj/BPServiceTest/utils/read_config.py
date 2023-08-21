@@ -27,7 +27,7 @@ class ReadConfig:
 
     @classmethod
     def get_root_dir(cls):
-        root_dir = os.path.abspath(os.path.dirname(__file__)).split('BUDTest')[0] + "BUDTest/"
+        root_dir = Config.ROOT_DIR
         return root_dir
 
     @classmethod

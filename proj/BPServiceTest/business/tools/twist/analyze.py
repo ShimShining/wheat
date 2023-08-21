@@ -6,7 +6,7 @@
 @Version: python 3.9
 @Describe: 分析twist结果
 """
-from utils.csv_handler import *
+from proj.BPServiceTest.utils.csv_handler import *
 
 
 def reward_enum(num, level=None):

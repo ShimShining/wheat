@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@Author: xieguanglin
+@Author: shining
 @File: test_ugc_map.py
 @Date: 2022/4/14 4:47 下午
 @Version: python 3.10
@@ -17,10 +17,10 @@ import random
 import allure
 import pytest
 
-from us_api_test.business.ugc.ugc_map import UGCMap
-from us_api_test.config import Config
+from proj.BPServiceTest.business.ugc.ugc_map import UGCMap
+from proj.BPServiceTest.config import Config
 from proj.BPServiceTest.testcase.service_test import ServiceTest
-from utils.time_tools import TimeTools
+from proj.BPServiceTest.utils.time_tools import TimeTools
 
 
 @allure.feature("草稿箱模块")

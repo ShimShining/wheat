@@ -12,12 +12,12 @@ import time
 import os
 import codecs
 
-from utils.csv_handler import *
-from utils.web3_tools import *
-from utils.draw import *
-from us_api_test.business.lottry.gacha import Gacha
-from us_api_test.tools.twist.generate_new_twist_user import *
-from utils.my_thread import MyThread
+from proj.BPServiceTest.utils.csv_handler import *
+from proj.BPServiceTest.utils.web3_tools import *
+from proj.BPServiceTest.utils.draw import *
+from proj.BPServiceTest.business.lottry.gacha import Gacha
+from proj.BPServiceTest.tools.twist.generate_new_twist_user import *
+from proj.BPServiceTest.utils.my_thread import MyThread
 
 
 def twist(user_info, downtown_id="", times=1):

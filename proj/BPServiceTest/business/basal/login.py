@@ -6,10 +6,10 @@
 @Version: python 3.10
 @Describe: 登录模块
 """
-from us_api_test.business.BUDUSApi import BUDUSApi
+from proj.BPServiceTest.business.bp_service import BPService
 
 
-class Login(BUDUSApi):
+class Login(BPService):
 
     def login_v2(self, **kwargs):
         """
@@ -23,7 +23,7 @@ class Login(BUDUSApi):
         }
         req = self.handle_req_params(locals())
         # print(req)
-        r = self.bud_post(req, **kwargs)
+        r = self.bp_post(req, **kwargs)
         return r.json()
 
     def get_register_recommend_group(self, uid, **kwargs):
@@ -33,7 +33,7 @@ class Login(BUDUSApi):
         h = {"uid": uid}
         # print(locals())
         req = self.handle_req_params(locals())
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_register_recommend_creator(self, uid, **kwargs):

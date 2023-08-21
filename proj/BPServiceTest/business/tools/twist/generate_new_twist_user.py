@@ -15,12 +15,12 @@ import time
 import os
 import codecs
 
-from utils.csv_handler import *
-from utils.web3_tools import *
-from utils.draw import *
-from us_api_test.business.basal.login import Login
-from us_api_test.business.dc.my_wallet import MyWallet, MyWalletHostToBUDX
-from us_api_test.business.pay.pay import Pay
+from proj.BPServiceTest.utils.csv_handler import *
+from proj.BPServiceTest.utils.web3_tools import *
+from proj.BPServiceTest.utils.draw import *
+from proj.BPServiceTest.business.basal.login import Login
+from proj.BPServiceTest.business.dc.my_wallet import MyWallet, MyWalletHostToBUDX
+from proj.BPServiceTest.business.pay.pay import Pay
 
 
 def get_new_user():

@@ -9,8 +9,8 @@
 import importlib.resources as res
 import ast
 
-import us_api_test.req_body.collection as pkg
-from utils.req_render import *
+import proj.BPServiceTest.req_json_body.chat as pkg
+from proj.BPServiceTest.utils.req_render import *
 
 
 class GetReqJson:
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     b = "thos is a collection"
     c = "this is a create collection desc"
     # res = GetReqJson.assemble_str_req_body(a, file_name="create_collection", b=b)
-    portraitUrl = "https://image-cdn.joinbudapp.com/fit-in/128x128/peopleHeadImg/1486605111559405568_1650880158.jpg"
+    portraitUrl = "aaa"
     res2 = GetReqJson.assemble_dict_req_body(json_file_name="collection_owner", userName="type_",  userNick=b, uid=c, portraitUrl=portraitUrl)
     print(res2)
 

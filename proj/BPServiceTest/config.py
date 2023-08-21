@@ -23,7 +23,8 @@ except Exception:
 
 
 class Config:
-    ROOT_DIR = os.path.abspath(os.path.dirname(__file__)).split('BUDTest')[0] + "\\"
+
+    ROOT_DIR = os.path.abspath(os.path.dirname(__file__)).split('wheat')[0] + "wheat" + "r\proj" + r"\BPServiceTest" + "\\"
     # 运行环境配置
     # print("开始进入配置文件")
     RUN_ENV = "MASTER_HOST" if not ugv._get("RUN_ENV") else ugv._get("RUN_ENV")
