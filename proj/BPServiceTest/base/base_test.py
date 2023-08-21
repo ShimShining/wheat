@@ -7,11 +7,11 @@
 @Describle: 测试基类封装
 """
 import allure
-from base.base_api import logger, log_api_cost
+from proj.BPServiceTest.base.base_api import logger, log_api_cost
 from hamcrest import *
-from base.bud_exception import *
-from utils.fake import Fake
-from utils.read_config import *
+from proj.BPServiceTest.base.bp_exception import *
+from proj.BPServiceTest.utils.fake import Fake
+from proj.BPServiceTest.utils.read_config import *
 
 
 class BaseTest:

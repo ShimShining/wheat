@@ -11,15 +11,15 @@ import sys
 from datetime import datetime
 from json import JSONDecodeError
 import requests
-from websocket import create_connection, WebSocketTimeoutException
-from utils.log import Logger, log_api_cost
+# from websocket import create_connection, WebSocketTimeoutException
+from proj.BPServiceTest.utils.log import Logger, log_api_cost
 import copy
 
 try:
     log_file_name = ".".join(sys.argv[1].replace(".py::", ".").replace("::", ".").split(".")[-2:])
 except:
     # todo 直接在文件夹下执行，不加参数的pytest，期望是带文件夹的名字作为log_file_name
-    log_file_name = "base_api.py兜底文件名"
+    log_file_name = "base_api.py默认日志文件名"
 
 # print(f"base_api的日志文件名：{log_file_name}")
 # print(sys.argv)
@@ -136,7 +136,7 @@ class BaseApi:
         self.log.info(f"返回状态码:【{r.status_code}】")
         if r.status_code in (500, 501, 502, 503):
             self.log.error(f"ServerRSPError: 服务器返回状态码={r.status_code}, 服务器出错")
-            from base import ServerRSPError
+            from proj.BPServiceTest.base.b import ServerRSPError
             raise ServerRSPError(f"ServerRSPError: 服务器返回状态码={r.status_code}, 服务器出错")
         try:
             rsp = r.json()
@@ -288,3 +288,4 @@ class BaseApi:
             else:
                 raise ValueError(f"传入解析的参数不是字典！！！ params = {params}")
         return get_req_body(args, is_tp_uid=is_tp_uid)
+

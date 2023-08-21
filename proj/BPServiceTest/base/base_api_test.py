@@ -6,9 +6,9 @@
 @Version: python 3.10
 @Describe: api 自动化测试基类
 """
-from base import BaseTest
+from proj.BPServiceTest.base.base_test import BaseTest
 import pytest
-from base.bud_exception import *
+from proj.BPServiceTest.base.bp_exception import *
 
 
 # todo 封装一层Exception，重新定义AssertError
@@ -78,12 +78,10 @@ class BaseApiTest(BaseTest):
 
     def assert_any_not_empty(self, seq: list):
 
-        flag = True
+        flag = False
         for s in seq:
             if s:
-                assert flag
-            return
-        flag = False
+                flag = True
         try:
             assert flag
         except AssertionError as e:

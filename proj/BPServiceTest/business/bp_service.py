@@ -6,7 +6,7 @@
 @Version: python 3.10
 @Describle: 接口自动化基类
 """
-from proj.BPServiceTest.base.bud_api import BUDApi
+from proj.BPServiceTest.base.bp_api import BUDApi
 from proj.BPServiceTest.config import Config
 
 

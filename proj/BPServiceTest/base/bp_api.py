@@ -1,30 +1,30 @@
 # -*- coding: utf-8 -*-
 """
 @Author: shining
-@File: bud_api.py
+@File: bp_api.py
 @Date: 2021/12/24 11:12 上午
 @Version: python 3.10
-@Describe:BUD business base api
+@Describe: business base api
 """
 import json
 import re
 
-from base import BaseApi
+from proj.BPServiceTest.base.base_api import BaseApi
 
 
-class BUDApi(BaseApi):
+class BPApi(BaseApi):
 
     def __init__(self, env=None, host=None, token=None, version=None):
-        super(BUDApi, self).__init__()
+        super(BPApi, self).__init__()
         self.env = env
         self.host = host
         self.token = token
         self.version = version
 
-    def bud_get(self, req: dict = None, path=None, params=None, headers=None, **kwargs):
+    def bp_get(self, req: dict = None, path=None, params=None, headers=None, **kwargs):
 
         # 处理自定义传入的一些参数，比如token
-        req, headers = self.post_headers(req, path, headers, **kwargs)
+        req, headers = self.handle_headers(req, path, headers, **kwargs)
         if req:
             url = self.host + req['path']
         elif not req and path and params:
@@ -36,10 +36,10 @@ class BUDApi(BaseApi):
         req.pop("path")
         return self.get(req)
 
-    def bud_post(self, req: dict = None, path: str = None, j: dict = None, headers: dict = None, **kwargs):
+    def bp_post(self, req: dict = None, path: str = None, j: dict = None, headers: dict = None, **kwargs):
 
         # 处理自定义传入的一些参数，比如token
-        req, headers = self.post_headers(req, path, headers, **kwargs)
+        req, headers = self.handle_headers(req, path, headers, **kwargs)
         if req:
             url = self.host + req['path']
             params = req.get("params", None)
@@ -55,7 +55,7 @@ class BUDApi(BaseApi):
         req.pop("path")
         return self.post(req)
 
-    def bud_head(self, req: dict = None, path=None, **kwargs):
+    def bp_head(self, req: dict = None, path=None, **kwargs):
         """
         todo: 参考cn_get和cn_post方式优化传参方式
         :param req:
@@ -72,12 +72,10 @@ class BUDApi(BaseApi):
         req.pop("path")
         return self.head(req)
 
-    def bud_delete(self, req: dict = None, path: str = None, j: dict = None, headers: dict = None, **kwargs):
+    def bp_delete(self, req: dict = None, path: str = None, j: dict = None, headers: dict = None, **kwargs):
 
-        # if not (req.get('path', None) == '/login' or path == '/login'):
-        #     self.token = self.get_token()
         # 处理自定义传入的一些参数，比如token
-        req, headers = self.post_headers(req, path, headers, **kwargs)
+        req, headers = self.handle_headers(req, path, headers, **kwargs)
         if req:
             url = self.host + req['path']
         elif not req and path and j:
@@ -89,10 +87,10 @@ class BUDApi(BaseApi):
         req.pop("path")
         return self.delete(req)
 
-    def bud_options(self):
+    def bp_options(self):
         pass
 
-    def bud_handle_headers(self, req=None, headers=None, **kwargs):
+    def bp_handle_headers(self, req=None, headers=None, **kwargs):
         """
         处理headers里的参数
         :param req:
@@ -108,7 +106,7 @@ class BUDApi(BaseApi):
             if environment == 'alpha':
                 environment = 'pr'
         except Exception as e:
-            self.log.info(f"获取headers字段environment值throw 异常，exception={e}")
+            self.log.error(f"获取headers字段environment值throw 异常，exception={e}")
         if req:
             # if not re.findall(m, req.get('path', None)):
             # 兼容req请求体中，带了headers参数
@@ -118,7 +116,7 @@ class BUDApi(BaseApi):
                 req['headers'].update(dict(kwargs))
                 if environment:
                     req['headers']['environment'] = environment
-                headers_handle_flag = True
+                # headers_handle_flag = True
             else:
                 if not req['headers'].get('version',None):
                     req['headers']['version'] = self.version
@@ -126,7 +124,7 @@ class BUDApi(BaseApi):
                     req['headers'][k] = v
                 if environment:
                     req['headers']['environment'] = environment
-                headers_handle_flag = True
+                # headers_handle_flag = True
             if req.get('method', None) == "POST":
                 req['headers']['Content-Type'] = 'application/json'   # 如果是走子参数，post请求不会添加这个头信息 放在底层去了
             if re.findall(m, req.get('path', None)):
@@ -147,13 +145,11 @@ class BUDApi(BaseApi):
 
         return req, headers
 
-    def get_token(self):
+    def get_token(self, req, **kwargs):
         pass
 
     def handle_token(self, req=None, path=None, **kwargs):
-        # if self.env == "MASTER":
-        #     self.log.info("测试环境不需要获取Token。")
-        #     return
+
         # req中带了token，直接使用
         match_login = r'.*/login[a-zA-Z0-9_]*$'
         if req and req.get('token', None) is not None:
@@ -181,7 +177,7 @@ class BUDApi(BaseApi):
         else:
             self.log.info("login相关接口不需要获取Token")
 
-    def post_headers(self, req=None, path=None, headers=None, **kwargs):
+    def handle_headers(self, req=None, path=None, headers=None, **kwargs):
         """
         前置处理headers 和kwargs传入的参数
         :param req:
@@ -196,6 +192,5 @@ class BUDApi(BaseApi):
         self.handle_token(req=req, path=path, **kwargs)
         if kwargs.get('token', None) is None:
             kwargs['token'] = self.token
-        req, headers = self.bud_handle_headers(req, headers, **kwargs)
+        req, headers = self.bp_handle_headers(req, headers, **kwargs)
         return req, headers
-
