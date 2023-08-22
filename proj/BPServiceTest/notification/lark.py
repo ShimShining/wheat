@@ -168,7 +168,7 @@ class Lark:
                 "header": {
                     "template": f"{color}",
                     "title": {
-                        "content": f"BUD-US {data['host']}-{data['version']} P0接口自动化执行Sync-执行来源:{data['source']}",
+                        "content": f"{data['host']}-{data['version']} P0接口自动化执行Sync-执行来源:{data['source']}",
                         "tag": "plain_text"
                     }
                 }
