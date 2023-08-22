@@ -50,7 +50,7 @@ class BPApi(BaseApi):
             req = {"path": path, "json": j, "headers": headers}
             url = self.host + path
         else:
-            raise ValueError("bud_post传入参数不正确！！！")
+            raise ValueError("bp_post传入参数不正确！！！")
         req['url'] = url
         req.pop("path")
         return self.post(req)
@@ -82,7 +82,7 @@ class BPApi(BaseApi):
             req = {"path": path, "json": j, "headers": headers}
             url = self.host + path
         else:
-            raise ValueError("bud_delete 参数传入不正确！！！")
+            raise ValueError("bp_delete 参数传入不正确！！！")
         req['url'] = url
         req.pop("path")
         return self.delete(req)

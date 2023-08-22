@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Author: shining
-@File: BUDUSApi.py
+@File: bp_service.py
 @Date: 2021/12/23 9:24 下午
 @Version: python 3.10
 @Describle: 接口自动化基类
@@ -67,6 +67,6 @@ class BPService(BPApi):
 
 
 if __name__ == "__main__":
-    bs = BUDUSApi()
+    bp = BPService()
 
 

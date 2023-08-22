@@ -122,7 +122,7 @@ class BaseApi:
                 tmp.append(k)
         for k in tmp:
             req.pop(k, None)
-        # 再次处理错误SSLError(MaxRetryError("HTTPSConnectionPool(host='api-test.joinbudapp.com', port=443)
+        # 再次处理错误SSLError(MaxRetryError("HTTPSConnectionPool(host='', port=443)
         req['verify'] = False
         data = copy.deepcopy(req)
         data.pop("method")

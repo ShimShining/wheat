@@ -289,10 +289,10 @@ def pytest_collection_modifyitems(session: "Session", config: "Config", items: L
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     '''
     收集测试结果
-    case.keywords={'BUDTest': 1, 'test_get_chat_list': 1, 'chat': 1, 'test_chat.py': 1,
-    'pytestmark': 1, 'us_api_test/testcase/test_social/__init__.py': 1,
+    case.keywords={'BPTest': 1, 'test_get_chat_list': 1, 'chat': 1, 'test_chat.py': 1,
+    'pytestmark': 1, 'u_api_test/testcase/test_social/__init__.py': 1,
     'smoking': 1, '()': 1, 'allure_label': 1, 'TestChat': 1}
-    case.nodeid=us_api_test/testcase/test_social/test_chat.py::TestChat::test_get_chat_list
+    case.nodeid=u_api_test/testcase/test_social/test_chat.py::TestChat::test_get_chat_list
     case.head_line=TestChat.test_get_chat_list
     '''
     res = {}

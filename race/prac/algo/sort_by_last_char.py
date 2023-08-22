@@ -16,7 +16,7 @@ def sort_by_last_char(words: str) -> list:
 
 if __name__ == "__main__":
 
-    assert sort_by_last_char("man i need a taxi up to ubud") == ["a", "need", "ubud", "i", "taxi", "man", "to", "up"]
+    assert sort_by_last_char("man i need a taxi up to ubupd") == ["a", "need", "ubupd", "i", "taxi", "man", "to", "up"]
     assert sort_by_last_char("take me to semynak") == ["take", "me", "semynak", "to"]
     assert sort_by_last_char("massage yes massage yes massage") == ["massage", "massage", "massage", "yes", "yes"]
     print("DONE")

@@ -191,7 +191,7 @@ class Lark:
         if engine:
             request_body['card']['header']['template'] = 'turquoise'
             request_body['card']['header']['title'][
-                'content'] = f"BUD-US {data['host']}-{data['version']}联机进退房P0接口自动化运行结果"
+                'content'] = f" {data['host']}-{data['version']}联机进退房P0接口自动化运行结果"
         return request_body
 
     def send_report_to_lark(self, data, job=None, engine=None):

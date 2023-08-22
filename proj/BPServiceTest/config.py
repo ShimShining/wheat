@@ -12,7 +12,6 @@ import re
 import os
 import inspect
 from proj.BPServiceTest.utils.data_model import DataModel
-from proj.BPServiceTest.utils.global_config import GlobalConfig
 from proj.BPServiceTest.utils.read_yaml import ReadYAML
 import proj.BPServiceTest.global_variable as ugv
 
@@ -24,7 +23,7 @@ except Exception:
 
 class Config:
 
-    ROOT_DIR = os.path.abspath(os.path.dirname(__file__)).split('wheat')[0] + "wheat" + "r\proj" + r"\BPServiceTest" + "\\"
+    ROOT_DIR = os.path.abspath(os.path.dirname(__file__)).split('wheat')[0] + "wheat"
     # 运行环境配置
     # print("开始进入配置文件")
     RUN_ENV = "MASTER_HOST" if not ugv._get("RUN_ENV") else ugv._get("RUN_ENV")
@@ -40,11 +39,11 @@ class Config:
     PROD_VERSION = '1.56.1'
 
     # 获取项目根路径
-    PROJ_PATH = GlobalConfig.ROOT_DIR + "us_api_test/"
+    PROJ_PATH = ROOT_DIR + "r\proj" + r"\BPServiceTest" + "\\"
     DATA_PATH = PROJ_PATH + "data/"
 
     # 服务配置文件路径
-    SERVICE_NAME_FILE_PATH = GlobalConfig.ROOT_DIR + "service_name.yml"
+    SERVICE_NAME_FILE_PATH = PROJ_PATH + "service_name.yml"
 
     # 报告机器人webhook地址
     # DEBUG ==> QA Team
@@ -67,7 +66,7 @@ class Config:
     ENGINE_SYNC_WEB_HOOK_URL = ""
 
     @classmethod
-    def get_proj_run_host(cls, run_env=None, service_name="BUDUSApi"):
+    def get_proj_run_host(cls, run_env=None, service_name="BPApi"):
         """
         获取服务的运行host
         :param service_name: 服务名称，取对应业务的基类名称即可
@@ -78,8 +77,8 @@ class Config:
         service_names = list(services.keys())
 
         if service_name not in service_names:
-            print(f"Warning: 在service_name.yml 未查找到相关服务的配置，默认使用BUDUSApi服务Host！！！")
-            service_name = "BUDUSApi"
+            print(f"Warning: 在service_name.yml 未查找到相关服务的配置，默认使用BPApi服务Host！！！")
+            service_name = "BPApi"
         if run_env:
             host = services[service_name]["HOST"][run_env]
             return host
@@ -177,9 +176,8 @@ if __name__ == "__main__":
     # print(Config.get_run_env_version())
     # print(Config.get_proj_run_host())
     c = Config()
-    # a = "budx_api"
-    # b = (
-    # 'super', 'BUDXUSApi', '__init__', 'env', 'token', 'host', 'Config', 'get_proj_run_host', 'log', 'info', '__class__',
+    # a = "bx_api"
+    # b = (,
     # '__name__', 'version', 'get_run_env_version')
     # service = c.get_base_service_name(a, b)
     # print(service)

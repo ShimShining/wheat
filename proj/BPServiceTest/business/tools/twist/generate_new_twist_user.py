@@ -19,7 +19,7 @@ from proj.BPServiceTest.utils.csv_handler import *
 from proj.BPServiceTest.utils.web3_tools import *
 from proj.BPServiceTest.utils.draw import *
 from proj.BPServiceTest.business.basal.login import Login
-from proj.BPServiceTest.business.dc.my_wallet import MyWallet, MyWalletHostToBUDX
+from proj.BPServiceTest.business.dc.my_wallet import MyWallet
 from proj.BPServiceTest.business.pay.pay import Pay
 
 
@@ -51,15 +51,15 @@ def bind_wallet():
     :return:
     """
     wal = Web3Tools.create_new_ETH_wallet()
-    wallet_host_budx = MyWalletHostToBUDX()
-    body = {"walletAddress": wal['address'], "walletName": "bud"}
+    wallet_host_bx = MyWalletHostToBX()
+    body = {"walletAddress": wal['address'], "walletName": "bp"}
     uid, token = get_new_user()
     time.sleep(3)
     h = {
         "uid": uid,
         "token": token
     }
-    r = wallet_host_budx.post_bind_address(body, **h)
+    r = wallet_host_bx.post_bind_address(body, **h)
     if r['result'] != 0:
         raise Exception(f"uid={uid}绑定钱包address={wal['address']}失败")
 

@@ -58,13 +58,13 @@ pytest testcase
 │   ├── base_api_test.py
 │   ├── base_app_page.py
 │   ├── base_test.py
-│   └── bud_api.py
+│   └── bp_api.py
 ├── log
 ├── notification
 │   ├── __init__.py
 │   ├── lark.py
-│   └── us_api_report.yml
-├── us_api_test
+│   └── u_api_report.yml
+├── u_api_test
 │   ├── __init__.py
 │   ├── business
 │   ├── config.py
@@ -74,13 +74,12 @@ pytest testcase
 │   ├── test_engine_server_case
 │   ├── testcase
 │   ├── tools
-│   └── us_global_variable.py
+│   └── u_global_variable.py
 ├── utils
 │   ├── __init__.py
 │   ├── data_model.py
 │   ├── decorator.py
 │   ├── fake.py
-│   ├── global_config.py
 │   ├── json_handler.py
 │   ├── log.py
 │   ├── my_thread.py

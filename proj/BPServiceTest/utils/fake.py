@@ -28,8 +28,9 @@ class Fake:
     def cn_nick_name(self):
 
         path = os.getcwd()
-        __root_dir = os.path.abspath(os.path.dirname(__file__)).split('BUDTest')[0] + "BUDTest/"
+        __root_dir = os.path.abspath(os.path.dirname(__file__)).split('wheat')[0] + "wheat/"
         # print(f"当前目录={path}")
+        # todo 假数据不应该放utils模块
         with open(__root_dir + r'utils/'+'adjective.json', 'r') as f:
             adjective = json.loads(f.read())
 

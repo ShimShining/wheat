@@ -338,14 +338,14 @@ if __name__ == '__main__':
     # 第3步：发起扭蛋
     # run_twist("./result/twist_user1672813872.csv")
     # downtown_id:
-    # teambud_downtown4_1：太空
-    # teambud_downtown5_1：地牢
-    # teambud_downtown2_1：山谷
-    # teambud_downtown3_1：沙漠
-    mutil_process_twist(users, complex_gacha=True, downtown_id="teambud_downtown2_1")
-    # mutil_process_twist(users, complex_gacha=True, downtown_id="teambud_downtown5_1")
-    # mutil_process_twist(users, complex_gacha=True, downtown_id="teambud_downtown2_1")
-    # mutil_process_twist(users, complex_gacha=True, downtown_id="teambud_downtown3_1")
+    # team_downtown4_1：太空
+    # team_downtown5_1：地牢
+    # team_downtown2_1：山谷
+    # team_downtown3_1：沙漠
+    mutil_process_twist(users, complex_gacha=True, downtown_id="team_downtown2_1")
+    # mutil_process_twist(users, complex_gacha=True, downtown_id="team_downtown5_1")
+    # mutil_process_twist(users, complex_gacha=True, downtown_id="team_downtown2_1")
+    # mutil_process_twist(users, complex_gacha=True, downtown_id="team_downtown3_1")
 
 
     # 第五步：分析球类成功率

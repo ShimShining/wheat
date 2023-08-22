@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Author: shining
-@File: bud_exception.py
+@File: bp_exception.py
 @Date: 2022/10/10 4:58 下午
 @Version: python 3.9
 @Describe: 自定义异常类

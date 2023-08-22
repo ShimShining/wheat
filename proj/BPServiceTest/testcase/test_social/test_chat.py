@@ -31,7 +31,7 @@ class TestChat(ServiceTest):
     @pytest.mark.smoking
     @pytest.mark.chat
     @allure.story("拉取单聊会话列表")
-    def test_get_chat_list_DM(self, BUDGlobalArgs):
+    def test_get_chat_list_DM(self, BPGlobalArgs):
         chat_info = dict()
         chat_info['chat_type'] = 0  # 0单聊，1群聊，2queen公告，3超级群
         chat_info['target_id'] = ""
@@ -47,7 +47,7 @@ class TestChat(ServiceTest):
     @pytest.mark.dependency(name='pre')  # 执行用例顺序排序，depends一定在name后执行
     @allure.story("创建超级群")
     @pytest.mark.run(order=1)
-    def test_create_group_chat(self, BUDGlobalArgs):  # BUDGlobalArgs是fixture全局变量的一种方式，放在conftest.py内定义空字典，在case层传入，全局可调用
+    def test_create_group_chat(self, BPGlobalArgs):  # BPGlobalArgs是fixture全局变量的一种方式，放在conftest.py内定义空字典，在case层传入，全局可调用
         chat_info = dict()
         chat_info["chat_type"] = 3  # 0单聊，1群聊，2queen公告，3超级群
         chat_info["target_id"] = ""
@@ -61,7 +61,7 @@ class TestChat(ServiceTest):
         self.assert_not_empty(r1)
         self.assert_not_empty(r1["data"]["chatInfo"]["targetId"], msg='r1["data"]["chatInfo"]["targetId"]')
         self.assert_not_empty(r1["data"]["chatInfo"]["teamInfo"]["teamId"], msg='r1["data"]["chatInfo"]["teamInfo"]["teamId"]')
-        BUDGlobalArgs['rsp'] = r1["data"]
+        BPGlobalArgs['rsp'] = r1["data"]
 
     @pytest.mark.smoking
     @pytest.mark.chat
@@ -146,7 +146,7 @@ class TestChat(ServiceTest):
     @pytest.mark.run(order=4)
     def test_invite_to_group(self, BPGlobalArgs):
         # 1.50版本后新接口
-        # rsp = BUDGlobalArgs.get("rsp", None)
+        # rsp = BPGlobalArgs.get("rsp", None)
         # target_id = rsp["chatInfo"]["targetId"]
         # memberlist = self.members
         # r = self.chat.post_invite_group(self.uid, targetId=target_id, memberList=memberlist)
@@ -190,8 +190,8 @@ class TestChat(ServiceTest):
     @pytest.mark.chat
     @allure.story("用户退群")
     @pytest.mark.run(order=5)
-    def test_leave_group(self, BUDGlobalArgs):
-        # rsp = BUDGlobalArgs.get("rsp", None)
+    def test_leave_group(self, BPGlobalArgs):
+        # rsp = BPGlobalArgs.get("rsp", None)
         # target_id = rsp["chatInfo"]["targetId"]
         # r = self.chat.post_join_group(self.leave_members["uid"], token=self.leave_members["token"], targetId=target_id)
         # self.assert_result_is_zero(r)
@@ -207,7 +207,7 @@ class TestChat(ServiceTest):
         #             uid.append(v["uid"])
         # self.assert_value_not_in_seq(self.leave_members["uid"], uid)  # 判断退出成功
         chat_info = dict()
-        rsp = BUDGlobalArgs.get("rsp", None)
+        rsp = BPGlobalArgs.get("rsp", None)
         target_id = rsp["chatInfo"]["targetId"]
         team_id = rsp["chatInfo"]["teamInfo"]["teamId"]
         chat_info["target_id"] = target_id
@@ -225,9 +225,9 @@ class TestChat(ServiceTest):
     @pytest.mark.chat
     @allure.story("踢出成员")
     @pytest.mark.run(order=6)
-    def test_remove_to_group(self, BUDGlobalArgs):
+    def test_remove_to_group(self, BPGlobalArgs):
         chat_info = dict()
-        rsp = BUDGlobalArgs.get("rsp", None)
+        rsp = BPGlobalArgs.get("rsp", None)
         target_id = rsp["chatInfo"]["targetId"]
         team_id = rsp["chatInfo"]["teamInfo"]["teamId"]
         chat_info["target_id"] = target_id
@@ -256,9 +256,9 @@ class TestChat(ServiceTest):
     @pytest.mark.dependency(depends=['pre'])  # 明确指出denpends用例依赖与"pre"
     @allure.story("删除超级群")
     @pytest.mark.run(order=7)
-    def test_del_group(self, BUDGlobalArgs):
+    def test_del_group(self, BPGlobalArgs):
         chat_info = dict()
-        rsp = BUDGlobalArgs.get("rsp", None)
+        rsp = BPGlobalArgs.get("rsp", None)
         target_id = rsp["chatInfo"]["targetId"]
         team_id = rsp["chatInfo"]["teamInfo"]["teamId"]
         team_name = rsp["chatInfo"]["teamInfo"]["teamName"]

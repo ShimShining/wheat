@@ -25,14 +25,14 @@ class Logger:
         self.logger.setLevel(getattr(logging, level))
         # 设置日志路径
         # # 绝对路径-不推荐
-        # log_abs_path = "/Users/shining/PycharmProjects/BUDTest/log/"
+        # log_abs_path = "/Users/shining/PycharmProjects/BPServiceTest/log/"
         dt = time.strftime("%Y_%m_%d_%H_%M", time.localtime(time.time()))
         # 日志文件名
         # log_file_name = log_abs_path + str(loggername) + '-' + str(dt) + '.log'
         # 相对执行位置的下新建/logs/文件夹
         current_path = os.path.dirname(os.path.realpath(__file__))
         # 获取项目的根路径
-        root_dir = os.path.abspath(os.path.dirname(__file__)).split('BUDTest')[0] + "BUDTest/"
+        root_dir = os.path.abspath(os.path.dirname(__file__)).split('wheat')[0] + "BPServiceTest/"
         print(f"root_dir = {root_dir}")
         # base_dir = os.path.join(sys.path[1], '')
         # print(f"base_dir = {base_dir}")
