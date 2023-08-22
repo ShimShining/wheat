@@ -42,8 +42,6 @@ def get_new_user():
     r = login.login_v2(provider=info["provider"], open_id=info["open_id"], is_finish=True)
     uid = r["data"]["userInfo"]["uid"]
     token = r["data"]["token"]
-    # print(f"uid={uid}")
-    # print(f"token={token}")
     return uid, token
 
 

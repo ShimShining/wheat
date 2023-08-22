@@ -42,7 +42,7 @@ class Login(BPService):
         name = "新手注册-获取注册流程推荐创作者列表"
         h = {"uid": uid}
         req = self.handle_req_params(locals())
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_login_user_info(self, uid, **kwargs):
@@ -51,7 +51,7 @@ class Login(BPService):
         name = "获取用户登录信息"
         h = {"uid": uid}
         req = self.handle_req_params(locals())
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
     def get_newbie_village_step(self, uid, **kwargs):
@@ -59,7 +59,7 @@ class Login(BPService):
         name = "获取用户登录信息"
         h = {"uid": uid}
         req = self.handle_req_params(locals())
-        r = self.bud_get(req, **kwargs)
+        r = self.bp_get(req, **kwargs)
         return r.json()
 
 

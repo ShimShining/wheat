@@ -16,7 +16,7 @@ from proj.BPServiceTest.utils.csv_handler import *
 from proj.BPServiceTest.utils.web3_tools import *
 from proj.BPServiceTest.utils.draw import *
 from proj.BPServiceTest.business.lottry.gacha import Gacha
-from proj.BPServiceTest.tools.twist.generate_new_twist_user import *
+from proj.BPServiceTest.business.tools.twist.generate_new_twist_user import *
 from proj.BPServiceTest.utils.my_thread import MyThread
 
 
