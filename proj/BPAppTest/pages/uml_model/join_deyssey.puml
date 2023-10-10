@@ -1,0 +1,13 @@
+@startuml
+title: 进入大世界并做双人动作
+
+participant 首页 as home
+participant 联机大世界 as odyssey
+participant 表情面板 as emote
+
+home -> odyssey: 点击加入公共/私人房间
+odyssey -> emote: 1.点击表情按钮\n2.点击进入双人动作表情tab
+emote -> odyssey: 点击双人动作，发起交互（high five）
+odyssey -> odyssey: 响应双人动作
+odyssey -> home: 1.点击左上角菜单按钮\n2.点击leave按钮
+@enduml

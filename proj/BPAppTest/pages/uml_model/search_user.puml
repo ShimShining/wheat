@@ -1,0 +1,17 @@
+@startuml
+title: 首页搜索用户
+
+participant 首页 as home
+participant 搜索输入页 as search_input_page
+participant 搜索loading页 as search_loading_page
+participant 搜索落地页 as search_landing_page
+
+home -> search_input_page: 点击首页搜索按钮
+search_input_page -> search_input_page: 检查搜索输入框
+search_input_page -> home: 点击左上角cancel（返回）按钮
+search_input_page -> search_loading_page: 1.输入搜索词\n2.点击搜索按钮
+search_loading_page -> search_landing_page: 自动加载
+search_landing_page -> search_landing_page: 查找搜索用户
+search_landing_page -> search_landing_page: 切换搜索tab
+search_landing_page -> home: 点击左上角cancel（返回）按钮
+@enduml
