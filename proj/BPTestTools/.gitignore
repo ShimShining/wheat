@@ -1,0 +1,10 @@
+/venv/*
+*data*
+data_struct.json
+.idea
+*/__pycache__/
+*.pyc
+.DS_Store
+*.mp3
+*.html
+*.json

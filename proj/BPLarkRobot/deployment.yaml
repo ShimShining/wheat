@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: --bot
+  namespace: base-server
+  labels:
+    app: lark-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: BP-lark-bot
+  template:
+    metadata:
+      labels:
+        app: BP-lark-bot
+    spec:
+      containers:
+      - name: BP-lark-bot
+        image: 3
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 30000
+        env:
+        - name: ""
+          value: ""
+        - name: ""
+          value: ""
+        - name: ""
+          value: ""
+        - name: ""
+          value: ""
+        - name: ""
+          value: "https://open.feishu.cn"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: BP-lark-bot-svc
+  namespace: BP-base-server
+spec:
+  selector:
+    app: BP-lark-bt
+  ports:
+    - protocol: TCP
+      port: 30000
+      targetPort: 30000
+---
+apiVersion:
+kind: Ingress
+metadata:
+  name: BP-larkbot-bot-ingress
+  namespace: BP-base-server
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0
+spec:
+  rules:
+  - host:
+    http:
+      paths:
+      - path: /lark
+        pathType: Prefix
+        backend:
+          service:
+            name: BP-lark-bot-s
+            port:
+              number: 30000
