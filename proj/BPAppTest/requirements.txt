@@ -1,0 +1,8 @@
+airtest==1.2.6
+allure_python_commons==2.9.45
+conf==0.4.1
+Faker==13.11.1
+pocoui==1.0.87
+pytest==7.1.2
+PyYAML==6.0
+requests==2.20.1
