@@ -89,9 +89,9 @@ def anagram_sol3(s1, s2):
     #         count_b[item] = 1
     #
     # matches = True
-    #
+    #k not in count_b.keys() O(N) k not in count_b O(1)
     # for k, v in count_a.items():
-    #     if k not in count_b.keys() or count_a[k] != count_b[k]:
+    #     if k not in count_b.keys() or count_a[k] != count_b[k]:  # if k not in count_b or count_a[k] != count_b[k]:
     #         matches = False
     #         break
     c1 = [0] * 26
@@ -111,7 +111,6 @@ def anagram_sol3(s1, s2):
             j += 1
         else:
             matches = False
-            break
     return matches
 
 
