@@ -113,6 +113,80 @@ def pars_checker(symbols):
     from race.prac.ds.stack_ds.stack import Stack
 
 
+def divide_by_n(dec_num, base=2):
+
+    from race.prac.ds.stack_ds.stack import Stack
+
+
+def infix_to_postfix(infix_expr):
+    """
+
+    :param infix_expr:
+    :return:
+    """
+    from race.prac.ds.stack_ds.stack import Stack
+    p = dict()
+    p["*"] = 3
+    p["/"] = 3
+    p["+"] = 2
+    p["-"] = 2
+    p["("] = 1
+    op_stack = Stack()
+    postfix_list = []
+    token_list = infix_expr.split()
+
+    for token in token_list:
+        if token.isdigit() or token.isalpha():
+            postfix_list.append(token)
+        elif token == "(":
+            op_stack.push(token)
+        elif token == ")":
+            top_op = op_stack.pop()
+            while top_op != "(":
+                postfix_list.append(top_op)
+                top_op = op_stack.pop()
+        else:
+            while not op_stack.is_empty() and p[op_stack.peek()] >= p[token]:
+                postfix_list.append(op_stack.pop())
+            op_stack.push(token)
+    while not op_stack.is_empty():
+        postfix_list.append(op_stack.pop())
+
+    return " ".join(postfix_list)
+
+
+def calcu(token, op1, op2):
+    if token == "*":
+        return op1 * op2
+    if token == "/":
+        return op1 / op2
+    if token == "+":
+        return op1 + op2
+    if token == "-":
+        return op1 - op2
+
+
+def postfix_eval(expr):
+    """
+    后缀表达式求值
+    :param expr:
+    :return:
+    """
+    from race.prac.ds.stack_ds.stack import Stack
+    result = Stack()
+    token_list = expr.split(" ")
+
+    for token in token_list:
+        if token.isdigit():
+            result.push(int(token))
+        else:
+            op2 = result.pop()
+            op1 = result.pop()
+            res = calcu(token, op1, op2)
+            result.push(res)
+
+    return result.pop()
+
 
 if __name__ == '__main__':
 
@@ -145,5 +219,14 @@ if __name__ == '__main__':
 
     print(pars_checker('{{([][])}()}'))
     print(pars_checker("[{()]"))
+
+    print(divide_by_n(988, 2))
+
+    expr = "14 + 5 * 8 - 9"
+    r= infix_to_postfix(expr)
+    print(r)
+
+    s = postfix_eval(r)
+    print(s)
 
 
