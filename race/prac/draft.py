@@ -2,8 +2,9 @@
 """
 Author : shining
 Date: 2023/11/6
-Describe: 重复练习文件
+Describe: practice
 """
+from race.prac.ds.queue_ds.queue_ds import Queue
 
 
 x = list(range(1000000))
@@ -120,7 +121,12 @@ def divide_by_n(dec_num, base=2):
 
 def infix_to_postfix(infix_expr):
     """
-
+    expr变为list
+    遍历token
+    数字字母直接加入后缀表达式中
+    左括号入栈
+    右括号,在栈中弹出左括号之前的操作符,遇到左括号为止
+    操作符,比较优先级,优先级高弹出栈内的
     :param infix_expr:
     :return:
     """
@@ -131,12 +137,13 @@ def infix_to_postfix(infix_expr):
     p["+"] = 2
     p["-"] = 2
     p["("] = 1
+
     op_stack = Stack()
     postfix_list = []
     token_list = infix_expr.split()
 
     for token in token_list:
-        if token.isdigit() or token.isalpha():
+        if token.isalpha() or token.isdigit():
             postfix_list.append(token)
         elif token == "(":
             op_stack.push(token)
@@ -151,19 +158,7 @@ def infix_to_postfix(infix_expr):
             op_stack.push(token)
     while not op_stack.is_empty():
         postfix_list.append(op_stack.pop())
-
     return " ".join(postfix_list)
-
-
-def calcu(token, op1, op2):
-    if token == "*":
-        return op1 * op2
-    if token == "/":
-        return op1 / op2
-    if token == "+":
-        return op1 + op2
-    if token == "-":
-        return op1 - op2
 
 
 def postfix_eval(expr):
@@ -173,19 +168,49 @@ def postfix_eval(expr):
     :return:
     """
     from race.prac.ds.stack_ds.stack import Stack
-    result = Stack()
-    token_list = expr.split(" ")
-
+    s = Stack()
+    token_list = expr.split()
     for token in token_list:
         if token.isdigit():
-            result.push(int(token))
+            s.push(int(token))
         else:
-            op2 = result.pop()
-            op1 = result.pop()
-            res = calcu(token, op1, op2)
-            result.push(res)
+            op2 = s.pop()
+            op1 = s.pop()
+            res = cal(token, op1, op2)
+            s.push(res)
+    return s.pop()
 
-    return result.pop()
+
+def cal(op, op1, op2):
+
+    if op == "*":
+        return op1 * op2
+    if op == "/;":
+        return op1 / op2
+    if op == "+":
+        return op1 + op2
+    if op == "-":
+        return op1 - op2
+
+
+def hot_potato(name_list, num):
+    """
+    约瑟夫问题
+    :param name_list:
+    :param num:
+    :return:
+    """
+    q = Queue()
+    for name in name_list:
+        q.enqueue(name)
+
+    while q.size() > 1:
+        for i in range(num-1):
+            q.enqueue(q.dequeue())
+
+        q.dequeue()
+
+    return q.dequeue()
 
 
 if __name__ == '__main__':
@@ -228,5 +253,9 @@ if __name__ == '__main__':
 
     s = postfix_eval(r)
     print(s)
+
+    names = list(range(40))
+    live = hot_potato(names, 7)
+    print(live)
 
 
