@@ -213,6 +213,20 @@ def hot_potato(name_list, num):
     return q.dequeue()
 
 
+def bubble_sort(nums: list):
+    """冒泡"""
+
+
+def selection_sort(nums: list):
+    """选择"""
+    for i in range(len(nums) - 1):
+        min_pos = i
+        for j in range(i+1, len(nums) - 1):
+            if nums[j] < nums[min_pos]:
+                min_pos = j
+        nums[i], nums[min_pos] = nums[min_pos], nums[i]
+
+
 if __name__ == '__main__':
 
     from timeit import Timer, timeit
@@ -258,4 +272,11 @@ if __name__ == '__main__':
     live = hot_potato(names, 7)
     print(live)
 
-
+    tmp_list = [1, 9, 34, 5, 12, 7, 9, 8, 1, 0, 13, 33]
+    tmp_list2 = [1, 2, 1, 3, 4, 5, 6]
+    # bubble_sort(tmp_list)
+    # bubble_sort(tmp_list2)
+    selection_sort(tmp_list)
+    selection_sort(tmp_list2)
+    print(f"tmp_list sorted = {tmp_list}")
+    print(f"tmp_list2 sorted = {tmp_list2}")
