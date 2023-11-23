@@ -226,6 +226,76 @@ def insertion_sort(nums):
     """插入"""
 
 
+class BinHeap:
+    def __init__(self):
+        self.heap_list = [0]
+        self.current_size = 0
+
+    def insert(self, key):
+        self.heap_list.append(key)
+        self.current_size = self.current_size + 1
+        self.perc_up(self.current_size)
+
+    def perc_up(self, i):
+        """
+        插入节点上浮
+        :param i:
+        :return:
+        """
+        while i // 2 > 0:
+            if self.heap_list[i] < self.heap_list[i//2]:
+                self.heap_list[i], self.heap_list[i//2] = self.heap_list[i//2], self.heap_list[i]
+            i = i // 2
+
+    def del_min(self):
+        """
+        删除最小节点, 并返回最小值
+        :return:
+        """
+        root_min_val = self.heap_list[1]
+        self.heap_list[1] = self.heap_list[self.current_size]
+        self.current_size -= 1
+        self.heap_list.pop()
+        self.perc_down(1)
+        return root_min_val
+
+    def perc_down(self, i):
+        """
+        下沉
+        :param i:
+        :return:
+        """
+        while i * 2 <= self.current_size:
+            mc_child = self.min_child(i)
+            if self.heap_list[i] > self.heap_list[mc_child]:
+                self.heap_list[i], self.heap_list[mc_child] = self.heap_list[mc_child], self.heap_list[i]
+            i = mc_child
+
+    def min_child(self, i):
+        """
+        返回最下子树的index
+        :param i:
+        :return:
+        """
+        if i * 2 + 1 > self.heap_list or self.heap_list[i * 2] < self.heap_list[i*2+1]:
+            return i * 2
+        return i * 2 + 1
+
+    def build_heap(self, nums):
+        """
+        insert建堆 时间复杂度是nlogn
+        下沉法建堆 时间复杂度是n
+        :param nums:
+        :return:
+        """
+        i = len(nums) // 2
+        self.heap_list = [0] + nums[:]
+        self.current_size = len(nums)
+        while i > 0:
+            self.perc_down(i)
+            i = i - 1
+
+
 if __name__ == '__main__':
 
     from timeit import Timer, timeit

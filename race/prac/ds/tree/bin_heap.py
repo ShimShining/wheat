@@ -68,3 +68,8 @@ class BinHeap:
         print(self.heap_list, i)
 
 
+if __name__ == '__main__':
+    tmp = [1, 6, 5, 4, 7, 8, 9, 2, 0]
+    bh = BinHeap()
+    bh.build_heap(tmp)
+
