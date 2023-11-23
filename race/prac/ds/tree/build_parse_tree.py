@@ -38,6 +38,11 @@ def build_parse_tree(expr: str):
 
 
 def evaluate(parse_tree):
+    """
+    todo 使用后续遍历实现
+    :param parse_tree:
+    :return:
+    """
     ops = {
         "+": operator.add,
         "-": operator.sub,
@@ -53,6 +58,20 @@ def evaluate(parse_tree):
         return fn(evaluate(left_tree), evaluate(right_tree))
     else:
         return parse_tree.get_root_val()
+
+
+def print_exp(tree):
+    """
+    todo 修改代码数字不加括号
+    :param tree:
+    :return:
+    """
+    s_val = ""
+    if tree:
+        s_val = '(' + print_exp(tree.get_left_tree())
+        s_val = s_val + str(tree.get_root_val())
+        s_val = s_val + print(tree.get_right_child())
+    return s_val
 
 
 if __name__ == '__main__':

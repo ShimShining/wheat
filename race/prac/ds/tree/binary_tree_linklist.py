@@ -63,6 +63,7 @@ class BinaryTree:
             self.right_child.preorder()
         print(self.key)
 
+
 if __name__ == '__main__':
     r = BinaryTree('a')
     r.insert_left('b')
