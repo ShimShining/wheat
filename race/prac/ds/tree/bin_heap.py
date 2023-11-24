@@ -2,7 +2,7 @@
 """
 Author : shining
 Date: 2023/11/23
-Describe: 二叉堆
+Describe: 二叉堆 - 小顶堆,大顶堆
 """
 
 
@@ -68,8 +68,59 @@ class BinHeap:
         print(self.heap_list, i)
 
 
+class MaxBinHeap:
+    """大顶堆"""
+    def __init__(self):
+        self.heap_list = [0]
+        self.current_size = 0
+
+    def insert(self, key):
+        self.heap_list.append(key)
+        self.current_size = self.current_size + 1
+        self.perc_up(self.current_size)
+
+    def perc_up(self, i):
+        while i // 2 > 0:
+            if self.heap_list[i] > self.heap_list[i//2]:
+                self.heap_list[i], self.heap_list[i//2] = self.heap_list[i//2], self.heap_list[i]
+            i = i // 2
+
+    def del_max(self):
+        root_val = self.heap_list[1]
+        self.heap_list[1] = self.heap_list[self.current_size]
+        self.heap_list.pop(self.current_size)
+        self.current_size -= 1
+        # self.heap_list.pop()
+        self.perc_down(1)
+        return root_val
+
+    def perc_down(self, i):
+        while i * 2 <= self.current_size:
+            max_child_index = self.max_child(i)
+            if self.heap_list[i] < self.heap_list[max_child_index]:
+                self.heap_list[i], self.heap_list[max_child_index] = self.heap_list[max_child_index], self.heap_list[i]
+            i = max_child_index
+
+    def max_child(self, i):
+        if i * 2 + 1 > self.current_size or self.heap_list[i * 2] > self.heap_list[i * 2 + 1]:
+            return i * 2
+        return i * 2 + 1
+
+    def build_heap(self, nums):
+        i = len(nums) // 2
+        self.heap_list = [0] + nums[:]
+        self.current_size = len(nums)
+        while i > 0:
+            self.perc_down(i)
+            i -= 1
+
+
 if __name__ == '__main__':
     tmp = [1, 6, 5, 4, 7, 8, 9, 2, 0]
-    bh = BinHeap()
-    bh.build_heap(tmp)
+    # bh = BinHeap()
+    # bh.build_heap(tmp)
+    mbh = MaxBinHeap()
+    mbh.build_heap(tmp)
+    mbh.del_max()
+    print(mbh.heap_list)
 
