@@ -29,7 +29,7 @@ def max_heap_sort(nums):
     length = len(nums)
     for i in range(length):
         mbh.heap_list.insert(length - i, mbh.del_max())
-
+    mbh.heap_list.pop(0)
     return mbh.heap_list
 
 
