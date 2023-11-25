@@ -6,6 +6,8 @@ Describe: avl 树
 """
 
 # -*- coding: utf-8 -*-
+import unittest
+
 """
 Author : shining
 Date: 2023/11/24
@@ -41,7 +43,7 @@ class AVLTree:
                 self._put(key, val, cur_node.left_child)
             else:
                 cur_node.left_child = AVLTreeNode(key, val, parent=cur_node)
-                self.update_balance(cur_node.left_child)   # 更新节点的平衡因子
+                self.update_balance(cur_node.left_child)  # 更新节点的平衡因子
         # 递归右子树
         else:
             if cur_node.has_right_child():
@@ -72,7 +74,7 @@ class AVLTree:
                 # 只做左旋
                 self.rotate_left(node)
         elif node.balance_factor > 0:  # 左重需要右旋
-            if node.left_child.balance_factor < 0:   # 左子结点右重先做左旋
+            if node.left_child.balance_factor < 0:  # 左子结点右重先做左旋
                 # 先做左旋
                 self.rotate_left(node.left_child)
                 self.rotate_right(node)
@@ -107,7 +109,7 @@ class AVLTree:
         return self.get(item)
 
     def __contains__(self, item):
-        if self.get(item):   # if self._get(item, self.root):
+        if self.get(item):  # if self._get(item, self.root):
             return True
         return False
 
@@ -138,7 +140,7 @@ class AVLTree:
         :param node:
         :return:
         """
-        if node.is_leaf():   # 1. 叶子节点
+        if node.is_leaf():  # 1. 叶子节点
             if node == node.parent.left_child:
                 node.parent.left_child = None
             else:
@@ -156,11 +158,11 @@ class AVLTree:
                 elif node.is_right_child():  # 右子节点删除
                     node.left_child.parent = node.parent
                     node.parent.right_child = node.left_child
-                else:   # 根节点删除
+                else:  # 根节点删除
                     node.replace_node_data(node.left_child.key, node.left_child.payload,
                                            node.left_child.left_child, node.left_child.right_child)
             else:
-                if node.is_left_child(): # 左子节点删除
+                if node.is_left_child():  # 左子节点删除
                     node.right_child.parent = node.parent
                     node.parent.left_child = node.right_child
                 elif node.is_right_child():  # 右子节点删除
@@ -213,11 +215,11 @@ class AVLTree:
 
 class AVLTreeNode:
     def __init__(self, key, val, left=None, right=None, parent=None):
-        self.key = key   # 键值
+        self.key = key  # 键值
         self.payload = val  # 数据项
         self.left_child = left  # 左子树
         self.right_child = right  # 右子树
-        self.parent = parent   # 父节点
+        self.parent = parent  # 父节点
         self.balance_factor = 0
 
     def has_left_child(self):
@@ -305,7 +307,65 @@ class AVLTreeNode:
                 self.right_child.parent = self.parent
 
 
+class BinaryTreeTests(unittest.TestCase):
+    def setUp(self):
+        self.bst = AVLTree()
+
+    def testAuto1(self):
+        self.bst.put(30, 'a')
+        self.bst.put(50, 'b')
+        self.bst.put(40, 'c')
+        assert self.bst.root.key == 40
+
+    def testAuto2(self):
+        self.bst.put(50, 'a')
+        self.bst.put(30, 'b')
+        self.bst.put(40, 'c')
+        assert self.bst.root.key == 40
+
+    def testAuto3(self):
+        self.bst.put(50, 'a')
+        self.bst.put(30, 'b')
+        self.bst.put(70, 'c')
+        self.bst.put(80, 'c')
+        self.bst.put(60, 'd')
+        self.bst.put(90, 'e')
+        assert self.bst.root.key == 70
+
+    def testAuto3(self):
+        self.bst.put(40, 'a')
+        self.bst.put(30, 'b')
+        self.bst.put(50, 'c')
+        self.bst.put(45, 'd')
+        self.bst.put(60, 'e')
+        self.bst.put(43, 'f')
+        assert self.bst.root.key == 45
+        assert self.bst.root.left_child.key == 40
+        assert self.bst.root.right_child.key == 50
+        assert self.bst.root.balance_factor == 0
+        assert self.bst.root.left_child.balance_factor == 0
+        assert self.bst.root.right_child.balance_factor == -1
+
+    def testAuto4(self):
+        self.bst.put(40, 'a')
+        self.bst.put(30, 'b')
+        self.bst.put(50, 'c')
+        self.bst.put(10, 'd')
+        self.bst.put(35, 'e')
+        self.bst.put(37, 'f')
+        assert self.bst.root.key == 35
+        assert self.bst.root.left_child.key == 30
+        assert self.bst.root.right_child.key == 40
+        assert self.bst.root.balance_factor == 0
+        assert self.bst.root.left_child.balance_factor == 1
+        assert self.bst.root.right_child.balance_factor == 0
+
+
 if __name__ == '__main__':
+    import platform
+
+    print(platform.python_version())
+    unittest.main()
     my_tree = AVLTree()
     my_tree[3] = 'red'
     my_tree[4] = 'blue'
@@ -320,4 +380,3 @@ if __name__ == '__main__':
     print(my_tree[2])
     for key in my_tree:
         print(key, my_tree[key])
-
