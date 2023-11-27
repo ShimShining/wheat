@@ -221,7 +221,6 @@ def selection_sort(nums: list):
     """选择"""
 
 
-
 def insertion_sort(nums):
     """插入"""
 
@@ -232,9 +231,7 @@ class BinHeap:
         self.current_size = 0
 
     def insert(self, key):
-        self.heap_list.append(key)
-        self.current_size = self.current_size + 1
-        self.perc_up(self.current_size)
+        pass
 
     def perc_up(self, i):
         """
@@ -242,22 +239,12 @@ class BinHeap:
         :param i:
         :return:
         """
-        while i // 2 > 0:
-            if self.heap_list[i] < self.heap_list[i//2]:
-                self.heap_list[i], self.heap_list[i//2] = self.heap_list[i//2], self.heap_list[i]
-            i = i // 2
 
     def del_min(self):
         """
         删除最小节点, 并返回最小值
         :return:
         """
-        root_min_val = self.heap_list[1]
-        self.heap_list[1] = self.heap_list[self.current_size]
-        self.current_size -= 1
-        self.heap_list.pop()
-        self.perc_down(1)
-        return root_min_val
 
     def perc_down(self, i):
         """
@@ -265,11 +252,6 @@ class BinHeap:
         :param i:
         :return:
         """
-        while i * 2 <= self.current_size:
-            mc_child = self.min_child(i)
-            if self.heap_list[i] > self.heap_list[mc_child]:
-                self.heap_list[i], self.heap_list[mc_child] = self.heap_list[mc_child], self.heap_list[i]
-            i = mc_child
 
     def min_child(self, i):
         """
@@ -277,9 +259,6 @@ class BinHeap:
         :param i:
         :return:
         """
-        if i * 2 + 1 > self.heap_list or self.heap_list[i * 2] < self.heap_list[i*2+1]:
-            return i * 2
-        return i * 2 + 1
 
     def build_heap(self, nums):
         """
@@ -288,12 +267,18 @@ class BinHeap:
         :param nums:
         :return:
         """
-        i = len(nums) // 2
-        self.heap_list = [0] + nums[:]
-        self.current_size = len(nums)
-        while i > 0:
-            self.perc_down(i)
-            i = i - 1
+
+
+def to_str(n, base):
+    """递归任意进制转换"""
+
+
+def draw_spiral(t, line_len):
+    """递归画螺旋线"""
+    if line_len > 0:
+        t.forward(line_len)
+        t.right(90)
+        draw_spiral(t, line_len - 5)
 
 
 if __name__ == '__main__':
@@ -351,3 +336,10 @@ if __name__ == '__main__':
     insertion_sort(tmp_list2)
     print(f"tmp_list sorted = {tmp_list}")
     print(f"tmp_list2 sorted = {tmp_list2}")
+
+    # print(to_str(1453, 16))
+    import turtle
+    t = turtle.Turtle()
+    draw_spiral(t, 100)
+    turtle.done()
+

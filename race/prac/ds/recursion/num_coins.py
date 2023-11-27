@@ -7,6 +7,22 @@ Describe: 分治策略 贪心策略
 """
 
 
+def coins_num(coin_vals: list, change):
+    """贪心策略找零: 每次都用最大的面值去找(对于正常货币体系可以,但是特殊的不行,比如[1, 5, 10, 21, 25])"""
+    coins = coin_vals[:]
+    c = 0
+    res = []
+    while change > 0:
+        max_coin = max(coins)
+        if change - max_coin >= 0:
+            c += 1
+            change -= max_coin
+            res.append((c, max_coin))
+        else:
+            coins.remove(max_coin)
+    return c, res
+
+
 def num_coins(coin_vals, change):
     """
     直接递归,耗时特别高
@@ -93,6 +109,7 @@ def print_coins(coin_used, change):
 
 
 if __name__ == '__main__':
+    print(coins_num([1, 5, 10, 25], 63))
     # print(num_coins([1, 5, 10, 25], 63))
 
     # print(num_coins_opt([1, 5, 10, 21, 25], 63, [0] * 64))
