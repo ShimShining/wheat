@@ -109,20 +109,20 @@ def print_coins(coin_used, change):
 
 
 if __name__ == '__main__':
-    print(coins_num([1, 5, 10, 25], 63))
-    # print(num_coins([1, 5, 10, 25], 63))
+    # print(coins_num([1, 5, 10, 25], 63))
+    print(num_coins([1, 5, 10, 21, 25], 63, [0] * 64))
 
     # print(num_coins_opt([1, 5, 10, 21, 25], 63, [0] * 64))
 
     # print(num_coins_dp([1, 5, 10, 21, 25], 63, [0] * 64))
 
-    amnt = 63
-    clist = [1, 5, 10, 21, 25]
-    coins_used = [0] * (amnt + 1)
-    coin_cnt = [0] * (amnt + 1)
-    print(num_coins_dp_opt(clist, amnt, coin_cnt, coins_used))
-    print(coins_used)
-    print("+++++++++++")
-    print_coins(coins_used, amnt)
-
-    print(coins_used)
+    # amnt = 63
+    # clist = [1, 5, 10, 21, 25]
+    # coins_used = [0] * (amnt + 1)
+    # coin_cnt = [0] * (amnt + 1)
+    # print(num_coins_dp_opt(clist, amnt, coin_cnt, coins_used))
+    # print(coins_used)
+    # print("+++++++++++")
+    # print_coins(coins_used, amnt)
+    #
+    # print(coins_used)
