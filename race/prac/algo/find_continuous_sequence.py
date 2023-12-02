@@ -64,4 +64,4 @@ if __name__ == "__main__":
     sol = Solution()
     temp_nums = [9, 0, 15]
     for num in temp_nums:
-        print(sol.find_continuous_sequence_opt(num))
+        print(sol.find_continuous_sequence(num))

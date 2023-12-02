@@ -51,6 +51,25 @@ def longest_palindrome_subseq_dfs(s):
     return dfs(0, len(s) - 1)
 
 
+def dp_longest_padlindrome_sub_str(s):
+    """
+    将s反转,问题转换为求两个字符串的最长公共子序列
+    :param s:
+    :return:
+    """
+    n = len(s)
+    s2 = s[::-1]
+    dp = [[0] * (n + 1) for _ in range(n+ 1)]
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            if s[i-1] == s2[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    return dp[n][n]
+
+
 if __name__ == '__main__':
     s = "cbbcd"
     print(longest_palindrome_subseq(s))
+    print(dp_longest_padlindrome_sub_str(s))
