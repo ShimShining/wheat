@@ -28,8 +28,8 @@ def is_valid(s):
         else:
             if not res:
                 return False
-            ch = res.pop()
-            if not match(ch, s[i]):
+            left = res.pop()
+            if not match(left, s[i]):
                 return False
         i += 1
     if res:
@@ -37,10 +37,10 @@ def is_valid(s):
     return True
 
 
-def match(r, l):
+def match(l, r):
     pre = "([{"
     post = ')]}'
-    return pre.index(r) == post.index(l)
+    return pre.index(l) == post.index(r)
 
 
 if __name__ == '__main__':
