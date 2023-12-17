@@ -11,14 +11,13 @@ from threading import Lock
 
 # 1.装饰器方式1实现单例
 def singleton(cls, *args, **kwargs):
-
     instance = {}
 
     def get_instance(*args, **kwargs):
-
         if cls not in instance:
             instance[cls] = cls(*args, **kwargs)
         return instance[cls]
+
     return get_instance
 
 
@@ -29,6 +28,7 @@ def wrapper(cls):
             ins_obj = cls(*args, **kwargs)
             setattr(cls, "ins", ins_obj)
         return getattr(cls, "ins")
+
     return inner
 
 
@@ -50,7 +50,6 @@ class Animal:
 
 # 懒汉式单例
 class LazyIdMaker:
-
     __instance = None
     __id = 1
     __instance_lock = Lock()
@@ -72,7 +71,6 @@ class LazyIdMaker:
 
 
 def test_lazy_id_maker():
-
     # IdMaker 是单例类，只允许有一个实例
 
     a = LazyIdMaker.get_instance()
@@ -92,25 +90,21 @@ def test_lazy_id_maker():
 
 # 饿汉式单例
 class HungryIdMaker:
-
     __instance = None
     __id = -1
 
     def __new__(cls):
-
         if cls.__instance is None:
             cls.__instance = super().__new__(cls)
 
         return cls.__instance
 
     def get_id(self):
-
         self.__id += 1
         return self.__id
 
 
 def test_hungry_id_maker():
-
     # IdMaker 是单例类，只允许有一个实例
 
     a = HungryIdMaker()
@@ -126,6 +120,23 @@ def test_hungry_id_maker():
     print(id1, id2, id3)
     assert id(a) == id(b)
     assert id(b) == id(c)
+
+
+# metaclass 实现单例
+class SingtonType(type):
+    _lock = Lock()
+
+    def __call__(cls, *args, **kwargs):
+        if not hasattr(cls, "_instance"):
+            with SingtonType._lock:
+                if not hasattr(cls, "_instance"):
+                    cls._instance = super(SingtonType, cls).__call__(*args, **kwargs)
+        return cls._instance
+
+
+class Foo(metaclass=SingtonType):
+    def __init__(self, name):
+        self.name = name
 
 
 if __name__ == '__main__':
@@ -144,3 +155,6 @@ if __name__ == '__main__':
     test_lazy_id_maker()
     test_hungry_id_maker()
 
+    f1 = Foo('obj_a')
+    f2 = Foo("obj_b")
+    print(id(f1), id(f2))
