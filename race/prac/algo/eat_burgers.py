@@ -3,7 +3,7 @@
 Author : shining
 Date: 2023/12/18
 Describe: 吃burger1 需要m分钟, 吃Burger2需要n分钟
-给定总时间,在浪费时间的前提下,可以吃得最多的汉堡
+给定总时间,在不浪费时间的前提下,可以吃得最多的汉堡
 """
 
 
@@ -14,6 +14,7 @@ def max_eat_burgers(burger1, burger2, total_time):
         return -1
     burger1_cnt = max_eat_burgers(burger1, burger2, total_time - burger1)
     burger2_cnt = max_eat_burgers(burger1, burger2, total_time - burger2)
+    # 如果都是-1 那就只能返回-1了,这个1就不能加了
     if burger1_cnt == -1 and burger2_cnt == -1:
         return -1
     return max(burger1_cnt, burger2_cnt) + 1
