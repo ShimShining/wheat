@@ -14,6 +14,12 @@ import requests
 # from websocket import create_connection, WebSocketTimeoutException
 from proj.BPServiceTest.utils.log import Logger, log_api_cost
 import copy
+import urllib3
+
+
+# console 不输出InsecureRequestWarning
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 try:
     log_file_name = ".".join(sys.argv[1].replace(".py::", ".").replace("::", ".").split(".")[-2:])
